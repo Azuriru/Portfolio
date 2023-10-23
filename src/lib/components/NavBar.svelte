@@ -1,9 +1,14 @@
-<script>
+<script lang="ts">
     import logo from "$lib/assets/buntini.png";
+
+    export let showLogo: boolean = true;
 </script>
 
 <div class="navbar">
-    <img class="logo" alt="logo" src="{logo}" />
+    {#if showLogo}
+        <img class="logo" alt="logo" src="{logo}" />
+    {/if}
+
     <div class="navbar-links">
         <a href="/">About</a>
         <a href="/">Contact</a>
@@ -17,7 +22,7 @@
         display: flex;
         align-items: center;
         padding: 0 10%;
-        height: 50px;
+        height: 60px;
         width: 100%;
 
         .navbar-links {
@@ -37,7 +42,6 @@
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 font-weight: 600;
-                font-size: 14px;
                 text-transform: uppercase;
                 letter-spacing: 2px;
 
