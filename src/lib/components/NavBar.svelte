@@ -31,9 +31,21 @@
                 flex-grow: 1;
                 height: 100%;
                 transition: 0.5s;
+                background-image: linear-gradient(to right, #0d9e9e, #5270ba);
+                background-size: 70%;
+                background-position-x: 70%;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: 600;
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
 
                 &:hover {
-                    background: rgb(255, 255, 255, 0.1);
+                    -webkit-background-clip: initial;
+                    -webkit-text-fill-color: #181818;
                 }
             }
         }
@@ -48,5 +60,14 @@
                 opacity: 1;
             }
         }
-    }
+    }    
+
+
+    // .irrelevant::after {
+    //     content: '';
+    //     width: 100%;
+    //     height: 5px;
+    //     position: absolute;
+    //     background: linear-gradient(to right, #0d9e9e, #5270ba, transparent);
+    // }
 </style>

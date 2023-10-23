@@ -12,6 +12,14 @@ body {
     overflow: hidden;
 }
 
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #181818;
+    color: #eee;
+}
+
 a {
     text-decoration: none;
     color: #0af3ff;

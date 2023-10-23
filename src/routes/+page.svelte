@@ -8,6 +8,7 @@
 
 <div class="home">
     <NavBar />
+    <div class="placeholder"></div>
 </div>
 
 <style>
