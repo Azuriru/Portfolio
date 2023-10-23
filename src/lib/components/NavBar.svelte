@@ -16,8 +16,9 @@
     .navbar {
         display: flex;
         align-items: center;
-        margin: 0 10%;
+        padding: 0 10%;
         height: 50px;
+        width: 100%;
 
         .navbar-links {
             display: flex;
@@ -31,10 +32,7 @@
                 flex-grow: 1;
                 height: 100%;
                 transition: 0.5s;
-                background-image: linear-gradient(to right, #0d9e9e, #5270ba);
-                background-size: 70%;
-                background-position-x: 70%;
-                background-repeat: no-repeat;
+                background-image: linear-gradient(to right, #05FEFE -40%, #0d9e9e, #5270ba);
                 background-attachment: fixed;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
