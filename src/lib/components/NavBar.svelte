@@ -41,16 +41,16 @@
                 flex-grow: 1;
                 height: 100%;
                 transition: 0.5s;
-                background-image: linear-gradient(to right, #05FEFE -40%, #0d9e9e, #5270ba);
+                background-image: linear-gradient(to right, #05FEFE, #46beff, #7089ff 80%);
                 background-attachment: fixed;
-                -webkit-background-clip: text;
+                background-clip: text;
                 -webkit-text-fill-color: transparent;
                 font-weight: 600;
                 text-transform: uppercase;
                 letter-spacing: 2px;
 
                 &:hover {
-                    -webkit-background-clip: initial;
+                    background-clip: initial;
                     -webkit-text-fill-color: #181818;
                 }
             }
