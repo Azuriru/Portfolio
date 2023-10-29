@@ -6,9 +6,6 @@
     import NavBar from '$lib/components/NavBar.svelte';
     import FontAwesome from '$lib/components/FontAwesome.svelte';
     import azugo from '$lib/assets/buntini_logo.png';
-    import github from '$lib/assets/logos/github.png';
-    import discord from '$lib/assets/logos/discord.png';
-    import stackflow from '$lib/assets/logos/stackflow.png';
 </script>
 
 <div class="home">
