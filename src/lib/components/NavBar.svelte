@@ -68,10 +68,13 @@
             width: 60px;
             margin-right: 50px;
             opacity: 0.7;
-            transition: opacity .5s;
+            transition: .5s, transform 0.3s;
 
             @media (max-width: 700px) {
-                display: none;
+                width: 0;
+                margin-right: 0;
+                transform: scale(0);
+                // display: none;
             }
 
             &:hover {
