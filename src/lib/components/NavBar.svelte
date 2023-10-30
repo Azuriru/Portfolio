@@ -44,7 +44,7 @@
                 justify-content: center;
                 flex-grow: 1;
                 height: 100%;
-                transition: 0.5s;
+                transition: 0.5s font-size;
                 background-image: linear-gradient(to right, #05FEFE, #46beff, #7089ff 80%);
                 background-attachment: fixed;
                 background-clip: text;
@@ -56,6 +56,10 @@
                 &:hover {
                     background-clip: initial;
                     -webkit-text-fill-color: #181818;
+                }
+
+                @media (max-width: 390px) {
+                    font-size: 14px;
                 }
             }
         }
