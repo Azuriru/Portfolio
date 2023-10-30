@@ -29,6 +29,10 @@
         height: 60px;
         width: 100%;
 
+        @media (max-width: 700px) {
+            padding: 0 2%;
+        }
+
         .navbar-links {
             display: flex;
             flex-grow: 1;
@@ -61,6 +65,10 @@
             margin-right: 50px;
             opacity: 0.7;
             transition: opacity .5s;
+
+            @media (max-width: 700px) {
+                display: none;
+            }
 
             &:hover {
                 opacity: 1;

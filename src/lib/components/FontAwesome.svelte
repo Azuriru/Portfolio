@@ -7,4 +7,4 @@
     export let type: string = 'brands';
 </script>
 
-<i class="fa-{type} fa-{name}"></i>
+<i class="fa-{type} fa-{name} fa-fw"></i>
