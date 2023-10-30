@@ -172,6 +172,7 @@
                         line-height: 26px;
                         letter-spacing: 0.5px;
                         white-space: pre-line;
+                        text-align: justify;
                     }
                 }
             }
