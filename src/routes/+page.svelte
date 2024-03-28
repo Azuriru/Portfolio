@@ -1,25 +1,24 @@
 <svelte:head>
-	<title>Home</title>
+    <title>Home</title>
 </svelte:head>
 
-<script>
+<script lang="ts">
     import NavBar from '$lib/components/NavBar.svelte';
-    import FontAwesome from '$lib/components/FontAwesome.svelte';
-    import azugo from '$lib/assets/buntini_logo.png';
 </script>
 
+
 <div class="home">
-    <NavBar showLogo={false}/>
+    <NavBar showLogo={false} />
     <main>
         <div class="info-wrapper">
             <div class="logo">
-                <img src="{azugo}" alt="logo" />
+                <img src="/assets/buntini_logo.png" alt="logo" />
             </div>
             <div class="info">
                 <div class="header-wrapper">
                     <div class="header">About Me</div>
                     <div class="contact-group">
-                        <a title="Azuriru" href="https://github.com/Azuriru" target="_blank" >
+                        <!-- <a title="Azuriru" href="https://github.com/Azuriru" target="_blank">
                             <FontAwesome name="github" />
                         </a>
                         <a title="kegumine" href="https://discord.com/users/187524257280950272" target="_blank">
@@ -30,7 +29,7 @@
                         </a>
                         <a title="gamemoderatorobyn@gmail.com" href="mailto:gamemoderatorobyn@gmail.com" target="_blank">
                             <FontAwesome name="envelope" type="solid" />
-                        </a>
+                        </a> -->
                     </div>
                 </div>
                 <div class="divider" />
@@ -41,7 +40,7 @@
                 </div>
                 <div class="divider" />
                 <div class="contact-group hidden">
-                    <a title="Azuriru" href="https://github.com/Azuriru" target="_blank" >
+                    <!-- <a title="Azuriru" href="https://github.com/Azuriru" target="_blank">
                         <FontAwesome name="github" />
                     </a>
                     <a title="kegumine" href="https://discord.com/users/187524257280950272" target="_blank">
@@ -52,7 +51,7 @@
                     </a>
                     <a title="gamemoderatorobyn@gmail.com" href="mailto:gamemoderatorobyn@gmail.com" target="_blank">
                         <FontAwesome name="envelope" type="solid" />
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>
@@ -86,7 +85,7 @@
             @media (max-width: 432px) {
                 padding: 20px;
             }
-            
+
             .info-wrapper {
                 display: flex;
                 align-items: center;
@@ -138,7 +137,7 @@
 
                         &.hidden {
                             display: none;
-                            
+
                             @media (max-width: 324px) {
                                 display: flex;
                                 justify-content: center;
@@ -166,7 +165,7 @@
                         }
                     }
 
-                    
+
                     .text {
                         padding: 0 12px;
                         line-height: 26px;

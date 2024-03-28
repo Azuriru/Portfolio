@@ -1,16 +1,13 @@
 <script lang="ts">
-    import logo from "$lib/assets/buntini.png";
-    import twinkle from "$lib/assets/twinkle.png";
-
     export let showLogo: boolean = true;
 </script>
 
 <div class="navbar">
     {#if showLogo}
-        <img class="logo" alt="logo" src="{logo}" />
-    
+        <img class="logo" alt="logo" src="/assets/buntini" />
+
     {:else}
-        <img class="logo" alt="logo" src="{twinkle}" style="filter: hue-rotate(278deg) saturate(1.5) contrast(0.7) brightness(1.3)" />    
+        <img class="logo" alt="logo" src="assets/twinkle.png" style="filter: hue-rotate(278deg) saturate(1.5) contrast(0.7) brightness(1.3)" />
     {/if}
 
     <div class="navbar-links">
@@ -28,6 +25,7 @@
         padding: 0 10%;
         height: 60px;
         width: 100%;
+        background-color: #141414;
 
         @media (max-width: 700px) {
             padding: 0 2%;
@@ -37,7 +35,7 @@
             display: flex;
             flex-grow: 1;
             height: 100%;
-            
+
             a {
                 display: flex;
                 align-items: center;
@@ -55,7 +53,7 @@
 
                 &:hover {
                     background-clip: initial;
-                    -webkit-text-fill-color: #181818;
+                    -webkit-text-fill-color: #141414;
                 }
 
                 @media (max-width: 390px) {
@@ -81,7 +79,7 @@
                 opacity: 1;
             }
         }
-    }    
+    }
 
 
     // .irrelevant::after {
