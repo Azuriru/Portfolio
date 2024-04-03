@@ -23,8 +23,19 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    background: #181818;
     color: #eee;
+
+    &::before {
+        content: "";
+        background: url("/assets/background.png") center / cover fixed;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        filter: brightness(0.2);
+        z-index: -1;
+    }
 }
 
 a {

@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-    <title>Svelte + TS</title>
+    <title>Home</title>
 </svelte:head>
 
 <slot />

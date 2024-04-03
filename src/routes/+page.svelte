@@ -6,7 +6,6 @@
     import NavBar from '$lib/components/NavBar.svelte';
 </script>
 
-
 <div class="home">
     <NavBar showLogo={false} />
     <main>
@@ -17,20 +16,6 @@
             <div class="info">
                 <div class="header-wrapper">
                     <div class="header">About Me</div>
-                    <div class="contact-group">
-                        <!-- <a title="Azuriru" href="https://github.com/Azuriru" target="_blank">
-                            <FontAwesome name="github" />
-                        </a>
-                        <a title="kegumine" href="https://discord.com/users/187524257280950272" target="_blank">
-                            <FontAwesome name="discord" />
-                        </a>
-                        <a title="Robyn" href="https://stackoverflow.com/users/7400301/robyn" target="_blank">
-                            <FontAwesome name="stack-overflow" />
-                        </a>
-                        <a title="gamemoderatorobyn@gmail.com" href="mailto:gamemoderatorobyn@gmail.com" target="_blank">
-                            <FontAwesome name="envelope" type="solid" />
-                        </a> -->
-                    </div>
                 </div>
                 <div class="divider" />
                 <div class="text">
@@ -39,20 +24,6 @@
                     While I'm normally woefully incompetent and deplorably pathetic at just about everything I attempt to do, once in a blue moon I may do something midly considered useful to someone, so do feel free to leave a message.
                 </div>
                 <div class="divider" />
-                <div class="contact-group hidden">
-                    <!-- <a title="Azuriru" href="https://github.com/Azuriru" target="_blank">
-                        <FontAwesome name="github" />
-                    </a>
-                    <a title="kegumine" href="https://discord.com/users/187524257280950272" target="_blank">
-                        <FontAwesome name="discord" />
-                    </a>
-                    <a title="Robyn" href="https://stackoverflow.com/users/7400301/robyn" target="_blank">
-                        <FontAwesome name="stack-overflow" />
-                    </a>
-                    <a title="gamemoderatorobyn@gmail.com" href="mailto:gamemoderatorobyn@gmail.com" target="_blank">
-                        <FontAwesome name="envelope" type="solid" />
-                    </a> -->
-                </div>
             </div>
         </div>
     </main>
@@ -113,37 +84,37 @@
                         margin: 12px 0;
                     }
 
-                    .contact-group {
-                        display: flex;
+                    // .contact-group {
+                    //     display: flex;
 
-                        a {
-                            display: flex;
-                            font-size: 20px;
-                            color: rgb(255, 255, 255, .5);
-                            transition: .5s color;
+                    //     a {
+                    //         display: flex;
+                    //         font-size: 20px;
+                    //         color: rgb(255, 255, 255, .5);
+                    //         transition: .5s color;
 
-                            &:hover {
-                                color: rgb(255, 255, 255, .95);
-                            }
+                    //         &:hover {
+                    //             color: rgb(255, 255, 255, .95);
+                    //         }
 
-                            &:not(:first-of-type) {
-                                margin-left: 12px;
-                            }
+                    //         &:not(:first-of-type) {
+                    //             margin-left: 12px;
+                    //         }
 
-                            img {
-                                height: 18px;
-                            }
-                        }
+                    //         img {
+                    //             height: 18px;
+                    //         }
+                    //     }
 
-                        &.hidden {
-                            display: none;
+                    //     &.hidden {
+                    //         display: none;
 
-                            @media (max-width: 324px) {
-                                display: flex;
-                                justify-content: center;
-                            }
-                        }
-                    }
+                    //         @media (max-width: 324px) {
+                    //             display: flex;
+                    //             justify-content: center;
+                    //         }
+                    //     }
+                    // }
 
                     .header-wrapper {
                         display: flex;

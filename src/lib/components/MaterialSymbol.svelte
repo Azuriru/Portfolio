@@ -16,5 +16,6 @@
 <style lang="scss">
     .material-symbol {
         font-size: inherit;
+        line-height: inherit;
     }
 </style>
