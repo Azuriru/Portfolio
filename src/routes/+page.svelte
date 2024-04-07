@@ -1,152 +1,219 @@
-<svelte:head>
-    <title>Home</title>
-</svelte:head>
-
 <script lang="ts">
-    import NavBar from '$lib/components/NavBar.svelte';
+    import { MaterialSymbol } from '$lib/components';
+    import type { MaterialSymbol as MaterialSymbolType } from 'material-symbols';
+
+    type ContactOption = {
+        name: MaterialSymbolType;
+        url?: string;
+        symbol: true;
+    } | {
+        name: string;
+        url?: string;
+        symbol?: null;
+    };
+
+    const contactOptions: ContactOption[] = [
+        {
+            name: 'github'
+        },
+        {
+            name: 'discord'
+        },
+        {
+            name: 'stack-overflow'
+        },
+        {
+            name: 'mail',
+            symbol: true
+        }
+    ] as const;
 </script>
 
 <div class="home">
-    <NavBar showLogo={false} />
-    <main>
-        <div class="info-wrapper">
-            <div class="logo">
-                <img src="/assets/buntini_logo.png" alt="logo" />
+    <div class="navigation">
+        <a class="navigation-item hoverable" href="/">About</a>
+        <a class="navigation-item hoverable" href="/">Skillset</a>
+        <a class="navigation-item hoverable" href="/">Projects</a>
+    </div>
+    <div class="main">
+        <div class="bun" />
+        <div class="info">
+            <div class="header-wrapper">
+                About Me
             </div>
-            <div class="info">
-                <div class="header-wrapper">
-                    <div class="header">About Me</div>
-                </div>
-                <div class="divider" />
-                <div class="text">
-                    Everyone and their mom has a website nowadays, I may as well join in. Hopefully I'll make it past the "forever under construction" stage, but this is all you're getting for now. I'll try to keep it up to date, but I have the memory fiercely rivaling that of a goldfish, so I may even forget this site exists in its entirety so, don't overestimate me.
+            <div class="divider" />
+            <div class="text">
+                Everyone and their mom has a website nowadays, I may as well join in. Hopefully I'll make it past the "forever under construction" stage, but this is all you're getting for now. I'll try to keep it up to date, but I have the memory fiercely rivaling that of a goldfish, so I may even forget this site exists in its entirety so, don't overestimate me.
 
-                    While I'm normally woefully incompetent and deplorably pathetic at just about everything I attempt to do, once in a blue moon I may do something midly considered useful to someone, so do feel free to leave a message.
-                </div>
-                <div class="divider" />
+                While I'm normally woefully incompetent and deplorably pathetic at just about everything I attempt to do, once in a blue moon I may do something midly considered useful to someone, so do feel free to leave a message.
+            </div>
+            <div class="divider" />
+            <div class="contact">
+                {#each contactOptions as option (option)}
+                    <div class="contact-option hoverable">
+                        {#if option.symbol}
+                            <MaterialSymbol name={option.name} />
+                        {:else}
+                            <div class={option.name} />
+                        {/if}
+                    </div>
+                {/each}
             </div>
         </div>
-    </main>
+    </div>
 </div>
 
 <style lang="scss">
-    @media (max-width: 1180px) {
-        .logo {
-            display: none;
+    $background: linear-gradient(to right, #05FEFE, #46beff, #7089ff 90%) center / cover fixed;
+
+    .hoverable {
+        cursor: pointer;
+        user-select: none;
+        filter: brightness(0.7);
+        transition: 0.5s filter;
+
+        &:hover {
+            filter: brightness(1);
         }
     }
 
     .home {
-        display: flex;
-        flex-direction: column;
+        @include flex(1, column);
         height: 100%;
 
-        main {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .navigation {
+            @include flex(noShrink);
+            height: 60px;
+            background: $background;
+            background-clip: text;
+            color: transparent;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 0 2%;
+
+            @include breakpoint(sm) {
+                font-size: 16px;
+                padding: 0 10%;
+            }
+
+            .navigation-item {
+                @include flex(center, grow);
+                background: inherit;
+                height: 100%;
+            }
+        }
+
+        .main {
+            @include flex(1, center);
+            padding: 20px;
             height: 100%;
-            padding: 0 120px;
             overflow-y: auto;
 
-            @media (max-width: 1180px) {
+            @include breakpoint(sm) {
                 padding: 0 80px;
             }
 
-            @media (max-width: 432px) {
-                padding: 20px;
+            @include breakpoint(lg) {
+                padding: 0 120px;
             }
 
-            .info-wrapper {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            .bun {
+                width: 80%;
+                height: 90%;
+                max-width: 400px;
+                mask: url('/assets/bun.png') center / contain no-repeat;
+                background: linear-gradient(to right, #05FEFE, #46beff, #7089ff 90%) center/cover fixed;
+                position: absolute;
+                pointer-events: none;
+                opacity: 0.15;
+            }
+
+            .info {
+                @include flex(column, centerX);
                 margin: auto;
 
-                .logo {
-                    height: 350px;
-
-                    img {
-                        height: 100%;
-                    }
+                .divider {
+                    flex-shrink: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: $background;
+                    margin: 12px 0;
+                    filter: brightness(0.7);
                 }
 
-                .info {
+                .header-wrapper {
                     display: flex;
-                    flex-direction: column;
-                    max-height: 100%;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding: 0 12px;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                }
 
-                    .divider {
-                        flex-shrink: 0;
-                        width: 100%;
-                        height: 2px;
-                        background: rgb(255 255 255 / 10%);
-                        margin: 12px 0;
+                .text {
+                    padding: 0 12px;
+                    line-height: 26px;
+                    letter-spacing: 0.5px;
+                    white-space: pre-line;
+                    text-align: justify;
+                }
+
+                .contact {
+                    @include flex(endX);
+                    gap: 0 12px;
+                    font-size: 30px;
+                    font-variation-settings: 'wght' 400, 'GRAD' 0, 'opsz' 32;
+                    background: $background;
+                    background-clip: text;
+                    color: transparent;
+
+                    @include maxpoint(md) {
+                        margin-bottom: 12px;
                     }
 
-                    // .contact-group {
-                    //     display: flex;
+                    @include breakpoint(md) {
+                        @include position(absolute, (
+                            bottom: 24px,
+                            right: 24px
+                        ));
+                    }
 
-                    //     a {
-                    //         display: flex;
-                    //         font-size: 20px;
-                    //         color: rgb(255, 255, 255, .5);
-                    //         transition: .5s color;
+                    .contact-option {
+                        @include flex(center);
+                        background: inherit;
+                        width: 32px;
+                        height: 32px;
 
-                    //         &:hover {
-                    //             color: rgb(255, 255, 255, .95);
-                    //         }
+                        > div {
+                            @include flex;
+                            background: inherit;
+                            background-clip: border-box;
+                            width: 32px;
+                            height: 32px;
+                            mask-size: 24px;
+                            mask-position: center;
+                            mask-repeat: no-repeat;
 
-                    //         &:not(:first-of-type) {
-                    //             margin-left: 12px;
-                    //         }
+                            &.github {
+                                mask-image: url('/assets/github.png');
+                            }
 
-                    //         img {
-                    //             height: 18px;
-                    //         }
-                    //     }
+                            &.discord {
+                                mask-image: url('/assets/discord.png');
+                            }
 
-                    //     &.hidden {
-                    //         display: none;
-
-                    //         @media (max-width: 324px) {
-                    //             display: flex;
-                    //             justify-content: center;
-                    //         }
-                    //     }
-                    // }
-
-                    .header-wrapper {
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        padding: 0 12px;
-
-                        @media (max-width: 324px) {
-                            justify-content: center;
-
-                            .contact-group {
-                                display: none;
+                            &.stack-overflow {
+                                mask-image: url('/assets/stack-overflow.png');
+                                mask-size: 20px;
                             }
                         }
-
-                        .header {
-                            text-transform: uppercase;
-                            letter-spacing: 2px;
-                        }
                     }
 
-
-                    .text {
-                        padding: 0 12px;
-                        line-height: 26px;
-                        letter-spacing: 0.5px;
-                        white-space: pre-line;
-                        text-align: justify;
-                    }
                 }
             }
-
         }
+
     }
 </style>
