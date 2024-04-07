@@ -72,6 +72,8 @@
     img {
         width: 100%;
         height: auto;
+        object-fit: contain;
+        border: 4px solid rgb(255, 255, 255, 0.1);
     }
 
     .hoverable {
@@ -120,9 +122,18 @@
             }
 
             &:nth-of-type(even) {
+                flex-direction: row-reverse;
+
                 &::before {
                     clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
                     left: auto;
+                }
+
+                @include breakpoint(md) {
+                    .preview {
+                        margin-left: 20px;
+                        margin-right: 0px;
+                    }
                 }
             }
 
@@ -135,10 +146,9 @@
 
                 @include breakpoint(md) {
                     width: 60%;
+                    height: 80%;
                     margin-right: 20px;
                 }
-
-                border: 4px solid rgb(255, 255, 255, 0.1);
             }
 
             .info {
