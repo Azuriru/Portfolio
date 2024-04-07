@@ -6,6 +6,10 @@
     src: url("/fonts/NotoColorEmoji.ttf");
 }
 
+:root {
+    --background: linear-gradient(to right, #05fefe, #46beff, #7089ff 90%) center / cover fixed;
+}
+
 body {
     color: white;
     background: black;
@@ -19,7 +23,7 @@ body {
     overflow: hidden;
 }
 
-.app {
+#portfolio {
     display: flex;
     flex-direction: column;
     height: 100%;

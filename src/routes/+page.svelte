@@ -29,36 +29,29 @@
     ] as const;
 </script>
 
-<div class="home">
-    <div class="navigation">
-        <a class="navigation-item hoverable" href="/">About</a>
-        <a class="navigation-item hoverable" href="/">Skillset</a>
-        <a class="navigation-item hoverable" href="/">Projects</a>
-    </div>
-    <div class="main">
-        <div class="bun" />
-        <div class="info">
-            <div class="header-wrapper">
-                About Me
-            </div>
-            <div class="divider" />
-            <div class="text">
-                Everyone and their mom has a website nowadays, I may as well join in. Hopefully I'll make it past the "forever under construction" stage, but this is all you're getting for now. I'll try to keep it up to date, but I have the memory fiercely rivaling that of a goldfish, so I may even forget this site exists in its entirety so, don't overestimate me.
+<div class="main">
+    <div class="bun" />
+    <div class="info">
+        <div class="header-wrapper">
+            About Me
+        </div>
+        <div class="divider" />
+        <div class="text">
+            Everyone and their mom has a website nowadays, I may as well join in. Hopefully I'll make it past the "forever under construction" stage, but this is all you're getting for now. I'll try to keep it up to date, but I have the memory fiercely rivaling that of a goldfish, so I may even forget this site exists in its entirety so, don't overestimate me.
 
-                While I'm normally woefully incompetent and deplorably pathetic at just about everything I attempt to do, once in a blue moon I may do something midly considered useful to someone, so do feel free to leave a message.
-            </div>
-            <div class="divider" />
-            <div class="contact">
-                {#each contactOptions as option (option)}
-                    <div class="contact-option hoverable">
-                        {#if option.symbol}
-                            <MaterialSymbol name={option.name} />
-                        {:else}
-                            <div class={option.name} />
-                        {/if}
-                    </div>
-                {/each}
-            </div>
+            While I'm normally woefully incompetent and deplorably pathetic at just about everything I attempt to do, once in a blue moon I may do something midly considered useful to someone, so do feel free to leave a message.
+        </div>
+        <div class="divider" />
+        <div class="contact">
+            {#each contactOptions as option (option)}
+                <div class="contact-option hoverable">
+                    {#if option.symbol}
+                        <MaterialSymbol name={option.name} />
+                    {:else}
+                        <div class={option.name} />
+                    {/if}
+                </div>
+            {/each}
         </div>
     </div>
 </div>
@@ -77,143 +70,112 @@
         }
     }
 
-    .home {
-        @include flex(1, column);
+    .main {
+        @include flex(1, center);
+        padding: 20px;
         height: 100%;
+        overflow-y: auto;
 
-        .navigation {
-            @include flex(noShrink);
-            height: 60px;
-            background: $background;
-            background-clip: text;
-            color: transparent;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 0 2%;
-
-            @include breakpoint(sm) {
-                font-size: 16px;
-                padding: 0 10%;
-            }
-
-            .navigation-item {
-                @include flex(center, grow);
-                background: inherit;
-                height: 100%;
-            }
+        @include breakpoint(sm) {
+            padding: 0 80px;
         }
 
-        .main {
-            @include flex(1, center);
-            padding: 20px;
-            height: 100%;
-            overflow-y: auto;
+        @include breakpoint(lg) {
+            padding: 0 120px;
+        }
 
-            @include breakpoint(sm) {
-                padding: 0 80px;
+        .bun {
+            width: 80%;
+            height: 90%;
+            max-width: 400px;
+            mask: url('/assets/bun.png') center / contain no-repeat;
+            background: linear-gradient(to right, #05FEFE, #46beff, #7089ff 90%) center/cover fixed;
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.15;
+        }
+
+        .info {
+            @include flex(column, centerX);
+            margin: auto;
+
+            .divider {
+                flex-shrink: 0;
+                width: 100%;
+                height: 2px;
+                background: $background;
+                margin: 12px 0;
+                filter: brightness(0.7);
             }
 
-            @include breakpoint(lg) {
-                padding: 0 120px;
+            .header-wrapper {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 0 12px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
             }
 
-            .bun {
-                width: 80%;
-                height: 90%;
-                max-width: 400px;
-                mask: url('/assets/bun.png') center / contain no-repeat;
-                background: linear-gradient(to right, #05FEFE, #46beff, #7089ff 90%) center/cover fixed;
-                position: absolute;
-                pointer-events: none;
-                opacity: 0.15;
+            .text {
+                padding: 0 12px;
+                line-height: 26px;
+                letter-spacing: 0.5px;
+                white-space: pre-line;
+                text-align: justify;
             }
 
-            .info {
-                @include flex(column, centerX);
-                margin: auto;
+            .contact {
+                @include flex(endX);
+                gap: 0 12px;
+                font-size: 30px;
+                font-variation-settings: 'wght' 400, 'GRAD' 0, 'opsz' 32;
+                background: $background;
+                background-clip: text;
+                color: transparent;
 
-                .divider {
-                    flex-shrink: 0;
-                    width: 100%;
-                    height: 2px;
-                    background: $background;
-                    margin: 12px 0;
-                    filter: brightness(0.7);
+                @include maxpoint(md) {
+                    margin-bottom: 12px;
                 }
 
-                .header-wrapper {
-                    display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
-                    padding: 0 12px;
-                    text-transform: uppercase;
-                    letter-spacing: 2px;
+                @include breakpoint(md) {
+                    @include position(absolute, (
+                        bottom: 24px,
+                        right: 24px
+                    ));
                 }
 
-                .text {
-                    padding: 0 12px;
-                    line-height: 26px;
-                    letter-spacing: 0.5px;
-                    white-space: pre-line;
-                    text-align: justify;
-                }
+                .contact-option {
+                    @include flex(center);
+                    background: inherit;
+                    width: 32px;
+                    height: 32px;
 
-                .contact {
-                    @include flex(endX);
-                    gap: 0 12px;
-                    font-size: 30px;
-                    font-variation-settings: 'wght' 400, 'GRAD' 0, 'opsz' 32;
-                    background: $background;
-                    background-clip: text;
-                    color: transparent;
-
-                    @include maxpoint(md) {
-                        margin-bottom: 12px;
-                    }
-
-                    @include breakpoint(md) {
-                        @include position(absolute, (
-                            bottom: 24px,
-                            right: 24px
-                        ));
-                    }
-
-                    .contact-option {
-                        @include flex(center);
+                    > div {
+                        @include flex;
                         background: inherit;
+                        background-clip: border-box;
                         width: 32px;
                         height: 32px;
+                        mask-size: 24px;
+                        mask-position: center;
+                        mask-repeat: no-repeat;
 
-                        > div {
-                            @include flex;
-                            background: inherit;
-                            background-clip: border-box;
-                            width: 32px;
-                            height: 32px;
-                            mask-size: 24px;
-                            mask-position: center;
-                            mask-repeat: no-repeat;
+                        &.github {
+                            mask-image: url('/assets/github.png');
+                        }
 
-                            &.github {
-                                mask-image: url('/assets/github.png');
-                            }
+                        &.discord {
+                            mask-image: url('/assets/discord.png');
+                        }
 
-                            &.discord {
-                                mask-image: url('/assets/discord.png');
-                            }
-
-                            &.stack-overflow {
-                                mask-image: url('/assets/stack-overflow.png');
-                                mask-size: 20px;
-                            }
+                        &.stack-overflow {
+                            mask-image: url('/assets/stack-overflow.png');
+                            mask-size: 20px;
                         }
                     }
-
                 }
             }
         }
-
     }
 </style>
