@@ -93,7 +93,7 @@
         overflow-y: auto;
 
         @include breakpoint(md) {
-            scroll-snap-type: y proximity;
+            scroll-snap-type: y mandatory;
         }
 
         .project {
