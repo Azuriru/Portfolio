@@ -1,71 +1,78 @@
 <script lang="ts">
-    import { MaterialSymbol } from '$lib/components';
-    import type { MaterialSymbol as MaterialSymbolType } from 'material-symbols';
+    import { stringify } from '$lib/util/string';
 
-    type ContactOption = {
-        name: MaterialSymbolType;
-        url?: string;
-        symbol: true;
-    } | {
+    type Framework = 'react' | 'svelte' | 'skeleton' | 'redux' | 'webpack' | 'vite' | 'tailwind' | 'divider';
+    type Project = {
         name: string;
+        description: string;
+        frameworks: Framework[];
+        github?: string;
         url?: string;
-        symbol?: null;
     };
 
-    const contactOptions: ContactOption[] = [
+    const projects: Project[] = [
         {
-            name: 'github'
+            name: 'TiniOS',
+            description: 'Designed and built a fully-functional, web-based operating system inspired by the late Windows 7. Features comprehensive window and application management, including individual sessions and interfaces for each application, replicating the core functionalities and user experience of traditional operating systems within a web environment.',
+            frameworks: ['react', 'redux', 'webpack', 'divider', 'svelte', 'vite'],
+            github: 'TiniOS',
+            url: 'https://buntini.vercel.app'
         },
         {
-            name: 'discord'
-        },
-        {
-            name: 'stack-overflow'
-        },
-        {
-            name: 'mail',
-            symbol: true
+            name: 'Skeletrade',
+            description: 'Mock-up for a sophisticated trading platform, meticulously designed to simulate real-world trading scenarios with an intuitive interface',
+            frameworks: ['svelte', 'skeleton', 'vite'],
+            url: 'https://azu-skel.vercel.app/trade'
         }
     ] as const;
 </script>
 
-<div class="home">
-    <div class="navigation">
-        <a class="navigation-item hoverable" href="/">About</a>
-        <a class="navigation-item hoverable" href="/">Skillset</a>
-        <a class="navigation-item hoverable" href="/">Projects</a>
-    </div>
-    <div class="main">
-        <div class="bun" />
-        <div class="info">
-            <div class="header-wrapper">
-                About Me
+<div class="main">
+    {#each projects as project (project)}
+        {@const { name, description, frameworks, github, url } = project}
+        <div class="project">
+            <div class="preview">
+                <img src="/assets/projects/{stringify(name)}.png" alt={stringify(name)} />
             </div>
-            <div class="divider" />
-            <div class="text">
-                Everyone and their mom has a website nowadays, I may as well join in. Hopefully I'll make it past the "forever under construction" stage, but this is all you're getting for now. I'll try to keep it up to date, but I have the memory fiercely rivaling that of a goldfish, so I may even forget this site exists in its entirety so, don't overestimate me.
-
-                While I'm normally woefully incompetent and deplorably pathetic at just about everything I attempt to do, once in a blue moon I may do something midly considered useful to someone, so do feel free to leave a message.
+            <div class="info">
+                <div class="header">
+                    <div class="title">{name}</div>
+                    <div class="frameworks">
+                        {#each frameworks as framework (framework)}
+                            {#if framework === 'divider'}
+                                <div class="framework-divider" />
+                            {:else}
+                                <div class="framework {framework}" />
+                            {/if}
+                        {/each}
+                    </div>
+                </div>
+                <div class="divider" />
+                <div class="description">
+                    {description}
+                </div>
+                <div class="quick-links">
+                    {#if github}
+                        <a href="https://github.com/Azuriru/{github}" class="repository">
+                            <div class="github" />
+                        </a>
+                    {/if}
+                    {#if url}
+                        <a href={url} class="live-preview">
+                            Visit
+                        </a>
+                    {/if}
+                </div>
             </div>
-            <div class="divider" />
         </div>
-    </div>
-    <div class="background" />
-    <div class="contact">
-        {#each contactOptions as option (option)}
-            <div class="contact-option hoverable">
-                {#if option.symbol}
-                    <MaterialSymbol name={option.name} />
-                {:else}
-                    <div class={option.name} />
-                {/if}
-            </div>
-        {/each}
-    </div>
+    {/each}
 </div>
 
 <style lang="scss">
-    $background: linear-gradient(to right, #05FEFE, #46beff, #7089ff 90%) center / cover fixed;
+    img {
+        width: 100%;
+        height: auto;
+    }
 
     .hoverable {
         cursor: pointer;
@@ -78,130 +85,162 @@
         }
     }
 
-    .home {
-        @include flex(1, column);
-        @include position(relative);
+    .main {
+        @include flex(column, 1, startY);
+        height: 100%;
+        overflow-y: auto;
 
-        .navigation {
-            @include flex;
-            height: 60px;
-            background: $background;
-            background-clip: text;
-            color: transparent;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            flex-shrink: 0;
-            padding: 0 2%;
-
-            @include breakpoint(sm) {
-                font-size: 16px;
-                padding: 0 10%;
-            }
-
-            .navigation-item {
-                @include flex(center, grow);
-                background: inherit;
-                height: 100%;
-            }
+        @include breakpoint(md) {
+            scroll-snap-type: y proximity;
         }
 
-        .main {
-            @include flex(1, center);
+        .project {
+            @include flex(column, center);
+            @include position(relative);
+            padding: 20px;
 
-            .bun {
-                width: 400px;
-                height: 400px;
-                mask: url('/assets/bun.png') center / contain no-repeat;
-                background: linear-gradient(to right, #05FEFE, #46beff, #7089ff 90%) center/cover fixed;
-                mix-blend-mode: unset;
-                position: absolute;
-                opacity: 0.15;
+            @include breakpoint(sm) {
+                padding: 30px;
+            }
+
+            @include breakpoint(md) {
+                flex-direction: row;
+                min-height: 100%;
+                scroll-snap-align: start;
+            }
+
+            &::before {
+                @include position(absolute, stretch);
+                content: '';
+                background: var(--background);
+                z-index: -1;
+                clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+                width: 80%;
+                opacity: 0.2;
+            }
+
+            &:nth-of-type(even) {
+                &::before {
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+                    left: auto;
+                }
+            }
+
+            .preview {
+                @include flex();
+
+                @include maxpoint(md) {
+                    margin-bottom: 20px;
+                }
+
+                @include breakpoint(md) {
+                    width: 60%;
+                    margin-right: 20px;
+                }
+
+                border: 4px solid rgb(255, 255, 255, 0.1);
             }
 
             .info {
-                @include flex(column, centerX);
-                padding: 0 80px;
+                @include flex(column, noShrink);
+
+                @include breakpoint(md) {
+                    width: 40%;
+                }
+
+                .header {
+                    @include flex(between, centerY);
+
+                    .title {
+                        font-size: 24px;
+                        font-variant: small-caps;
+                        letter-spacing: 2px;
+                    }
+
+                    .frameworks {
+                        @include flex;
+                        gap: 6px;
+
+                        .framework {
+                            flex-shrink: 0;
+                            width: 24px;
+                            height: 24px;
+                            mask: center / contain no-repeat;
+                            background: var(--background);
+                        }
+
+                        .framework-divider {
+                            flex-shrink: 0;
+                            width: 2px;
+                            height: 24px;
+                            background: var(--background);
+                            margin: 0 4px;
+                        }
+
+                        .react {
+                            mask-image: url('/assets/frameworks/react.svg');
+                        }
+
+                        .redux {
+                            mask-image: url('/assets/frameworks/redux.svg');
+                        }
+
+                        .skeleton {
+                            mask-image: url('/assets/frameworks/skeleton.svg');
+                        }
+
+                        .svelte {
+                            mask-image: url('/assets/frameworks/svelte.svg');
+                        }
+
+                        .tailwind {
+                            mask-image: url('/assets/frameworks/tailwind.svg');
+                        }
+
+                        .vite {
+                            mask-image: url('/assets/frameworks/vite.svg');
+                        }
+
+                        .webpack {
+                            mask-image: url('/assets/frameworks/webpack.svg');
+                        }
+                    }
+                }
 
                 .divider {
                     flex-shrink: 0;
                     width: 100%;
                     height: 2px;
-                    background: $background;
+                    background: var(--background);
                     margin: 12px 0;
-                    filter: brightness(0.7);
                 }
 
-                .header-wrapper {
-                    display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
-                    padding: 0 12px;
-                    text-transform: uppercase;
-                    letter-spacing: 2px;
+                .description {
+                    line-height: 22px;
                 }
 
-                .text {
-                    padding: 0 12px;
-                    line-height: 26px;
-                    letter-spacing: 0.5px;
-                    white-space: pre-line;
-                    text-align: justify;
-                }
-            }
-        }
+                .quick-links {
+                    @include flex(endX, centerY);
+                    gap: 12px;
+                    margin-top: 40px;
 
-        .background {
-            @include position(absolute, stretch);
-            display: none;
-            background: $background;
-        }
-
-        .contact {
-            @include flex;
-            @include position(absolute, (
-                bottom: 24px,
-                right: 24px
-            ));
-            gap: 0 12px;
-            font-size: 30px;
-            font-variation-settings: 'wght' 400, 'GRAD' 0, 'opsz' 32;
-            background: $background;
-            background-clip: text;
-            color: transparent;
-
-            .contact-option {
-                @include flex(center);
-                background: inherit;
-                width: 32px;
-                height: 32px;
-
-                > div {
-                    @include flex;
-                    background: inherit;
-                    background-clip: border-box;
-                    width: 32px;
-                    height: 32px;
-                    mask-size: 24px;
-                    mask-position: center;
-                    mask-repeat: no-repeat;
-
-                    &.github {
-                        mask-image: url('/assets/github.png');
+                    .github {
+                        background: var(--background);
+                        background-clip: border-box;
+                        width: 24px;
+                        height: 24px;
+                        mask: url('/assets/github.png') center / contain no-repeat;
                     }
 
-                    &.discord {
-                        mask-image: url('/assets/discord.png');
-                    }
-
-                    &.stack-overflow {
-                        mask-image: url('/assets/stack-overflow.png');
-                        mask-size: 20px;
+                    .live-preview {
+                        background: var(--background);
+                        padding: 8px 20px;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        font-size: 14px;
                     }
                 }
             }
-
         }
     }
 </style>
