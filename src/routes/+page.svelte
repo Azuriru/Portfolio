@@ -37,9 +37,11 @@
         </div>
         <div class="divider" />
         <div class="text">
-            Everyone and their mom has a website nowadays, I may as well join in. Hopefully I'll make it past the "forever under construction" stage, but this is all you're getting for now. I'll try to keep it up to date, but I have the memory fiercely rivaling that of a goldfish, so I may even forget this site exists in its entirety so, don't overestimate me.
+            Welcome to my corner of the internet. My journey into the world of web development began somewhat early— at the age of 15, to be exact. What started as a curious exploration has blossomed into a full-fledged passion and profession. Programming is not just a job for me, it's what I love doing. It's about constantly building something new, figuring stuff out, and getting a bit better at it every day.
 
-            While I'm normally woefully incompetent and deplorably pathetic at just about everything I attempt to do, once in a blue moon I may do something midly considered useful to someone, so do feel free to leave a message.
+            Specializing in frontend development, I have dedicated myself to crafting engaging, intuitive, and visually appealing digital experiences. My toolkit is filled with the latest technologies and methodologies in UI/UX design, ensuring that each project is not only aesthetically pleasing but also user-friendly and accessible.
+
+            While my primary focus lies in bringing designs to life through code, my capabilities extend into the backend. This versatility allows me to understand and contribute to the full spectrum of web development, ensuring a cohesive and seamless experience from start to finish.
         </div>
         <div class="divider" />
         <div class="contact">
