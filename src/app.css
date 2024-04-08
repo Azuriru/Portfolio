@@ -1,13 +1,9 @@
 /* CSS reset */
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @font-face {
     font-family: Emoji;
-    src: url("/fonts/NotoColorEmoji.ttf");
-}
-
-:root {
-    --background: linear-gradient(to right, #05fefe, #46beff, #7089ff 90%) center / cover fixed;
+    src: url('/fonts/NotoColorEmoji.ttf');
 }
 
 body {
@@ -30,8 +26,8 @@ body {
     color: #eee;
 
     &::before {
-        content: "";
-        background: url("/assets/background.png") center / cover fixed;
+        content: '';
+        background: url('/assets/background.png') center / cover fixed;
         position: absolute;
         top: 0;
         right: 0;
@@ -80,6 +76,12 @@ input {
     font-weight: inherit;
     text-overflow: ellipsis;
     text-transform: inherit;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
 }
 
 /* The only way to live */

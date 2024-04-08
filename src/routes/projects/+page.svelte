@@ -40,7 +40,7 @@
                     <div class="frameworks">
                         {#each frameworks as framework (framework)}
                             {#if framework === 'divider'}
-                                <div class="framework-divider" />
+                                <div class="divider vertical" />
                             {:else}
                                 <div class="framework {framework}" />
                             {/if}
@@ -70,9 +70,7 @@
 
 <style lang="scss">
     img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
+        aspect-ratio: 4/3;
         border: 4px solid rgb(255, 255, 255, 0.1);
     }
 
@@ -131,7 +129,7 @@
                     flex-direction: row-reverse;
 
                     .preview {
-                        margin-left: 20px;
+                        margin-left: 30px;
                         margin-right: 0px;
                     }
                 }
@@ -141,13 +139,13 @@
                 @include flex();
 
                 @include maxpoint(md) {
-                    margin-bottom: 20px;
+                    margin-bottom: 30px;
                 }
 
                 @include breakpoint(md) {
-                    width: 60%;
-                    height: 80%;
-                    margin-right: 20px;
+                    max-width: 60%;
+                    max-height: 80%;
+                    margin-right: 30px;
                 }
             }
 
@@ -172,47 +170,16 @@
                         gap: 6px;
 
                         .framework {
+                            @include mask(contain);
                             flex-shrink: 0;
+                            background: var(--background);
                             width: 24px;
                             height: 24px;
-                            mask: center / contain no-repeat;
-                            background: var(--background);
                         }
 
-                        .framework-divider {
-                            flex-shrink: 0;
-                            width: 2px;
+                        .divider {
                             height: 24px;
-                            background: var(--background);
                             margin: 0 4px;
-                        }
-
-                        .react {
-                            mask-image: url('/assets/frameworks/react.svg');
-                        }
-
-                        .redux {
-                            mask-image: url('/assets/frameworks/redux.svg');
-                        }
-
-                        .skeleton {
-                            mask-image: url('/assets/frameworks/skeleton.svg');
-                        }
-
-                        .svelte {
-                            mask-image: url('/assets/frameworks/svelte.svg');
-                        }
-
-                        .tailwind {
-                            mask-image: url('/assets/frameworks/tailwind.svg');
-                        }
-
-                        .vite {
-                            mask-image: url('/assets/frameworks/vite.svg');
-                        }
-
-                        .webpack {
-                            mask-image: url('/assets/frameworks/webpack.svg');
                         }
                     }
                 }
@@ -223,6 +190,12 @@
                     height: 2px;
                     background: var(--background);
                     margin: 12px 0;
+
+                    &.vertical {
+                        width: 2px;
+                        height: 100%;
+                        margin: 0 12px;
+                    }
                 }
 
                 .description {
@@ -235,11 +208,11 @@
                     margin-top: 40px;
 
                     .github {
+                        @include mask(contain);
                         background: var(--background);
                         background-clip: border-box;
                         width: 24px;
                         height: 24px;
-                        mask: url('/assets/github.png') center / contain no-repeat;
                     }
 
                     .live-preview {

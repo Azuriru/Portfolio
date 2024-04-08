@@ -83,3 +83,9 @@ $breakpoints: (
         }
     }
 }
+
+@mixin mask($size) {
+    mask-size: $size;
+    mask-position: center;
+    mask-repeat: no-repeat;
+}

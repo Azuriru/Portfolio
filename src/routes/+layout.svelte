@@ -1,5 +1,6 @@
 <script lang="ts">
-    import './styles.css';
+    import '../app.css';
+    import './+layout.css';
 </script>
 
 <svelte:head>
@@ -16,8 +17,6 @@
 </div>
 
 <style lang="scss">
-    $background: linear-gradient(to right, #05FEFE, #46beff, #7089ff 90%) center / cover fixed;
-
     .hoverable {
         cursor: pointer;
         user-select: none;
@@ -36,7 +35,7 @@
         .navigation {
             @include flex(noShrink);
             height: 60px;
-            background: $background;
+            background: var(--background);
             background-clip: text;
             color: transparent;
             font-size: 14px;
@@ -54,21 +53,6 @@
                 @include flex(center, grow);
                 background: inherit;
                 height: 100%;
-            }
-        }
-
-        .main {
-            @include flex(column, center, 1);
-            padding: 20px;
-            height: 100%;
-            overflow-y: auto;
-
-            @include breakpoint(sm) {
-                padding: 0 80px;
-            }
-
-            @include breakpoint(lg) {
-                padding: 0 120px;
             }
         }
     }
