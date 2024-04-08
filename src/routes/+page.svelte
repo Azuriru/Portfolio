@@ -155,24 +155,13 @@
 
                     > div {
                         @include flex;
+                        @include mask(24px);
                         background: inherit;
                         background-clip: border-box;
                         width: 32px;
                         height: 32px;
-                        mask-size: 24px;
-                        mask-position: center;
-                        mask-repeat: no-repeat;
-
-                        &.github {
-                            mask-image: url('/assets/github.png');
-                        }
-
-                        &.discord {
-                            mask-image: url('/assets/discord.png');
-                        }
 
                         &.stack-overflow {
-                            mask-image: url('/assets/stack-overflow.png');
                             mask-size: 20px;
                         }
                     }
