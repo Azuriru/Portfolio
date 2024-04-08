@@ -122,14 +122,14 @@
             }
 
             &:nth-of-type(even) {
-                flex-direction: row-reverse;
-
                 &::before {
                     clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
                     left: auto;
                 }
 
                 @include breakpoint(md) {
+                    flex-direction: row-reverse;
+
                     .preview {
                         margin-left: 20px;
                         margin-right: 0px;
