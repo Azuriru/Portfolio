@@ -1,36 +1,40 @@
 <script lang="ts">
-    import { MaterialSymbol } from '$lib/components';
+    import { MaterialSymbol, Mask } from '$lib/components';
+    import type { MaskIcon } from '$lib/types/Mask';
     import type { MaterialSymbol as MaterialSymbolType } from 'material-symbols';
 
     type ContactOption = {
         name: MaterialSymbolType;
-        url?: string;
+        url: string;
         symbol: true;
     } | {
-        name: string;
-        url?: string;
+        name: MaskIcon;
+        url: string;
         symbol?: null;
     };
-
     const contactOptions: ContactOption[] = [
         {
-            name: 'github'
+            name: 'github',
+            url: 'https://github.com/Azuriru'
         },
         {
-            name: 'discord'
+            name: 'discord',
+            url: 'https://discord.com/users/187524257280950272'
         },
         {
-            name: 'stack-overflow'
+            name: 'stack-overflow',
+            url: 'https://stackoverflow.com/users/7400301/robyn'
         },
         {
             name: 'mail',
+            url: 'mailto:gamemoderatorobyn@gmail.com',
             symbol: true
         }
     ] as const;
 </script>
 
 <div class="main">
-    <div class="bun" />
+    <div class="buntini" />
     <div class="info">
         <div class="header-wrapper">
             About Me
@@ -50,7 +54,7 @@
                     {#if option.symbol}
                         <MaterialSymbol name={option.name} />
                     {:else}
-                        <div class={option.name} />
+                        <Mask icon={option.name} href={option.url} />
                     {/if}
                 </div>
             {/each}
@@ -59,8 +63,6 @@
 </div>
 
 <style lang="scss">
-    $background: linear-gradient(to right, #05FEFE, #46beff, #7089ff 90%) center / cover fixed;
-
     .hoverable {
         cursor: pointer;
         user-select: none;
@@ -74,24 +76,17 @@
 
     .main {
         @include flex(1, center);
-        padding: 20px;
+        @include max(lg);
+        padding: 20px 2%;
         height: 100%;
         overflow-y: auto;
 
-        @include breakpoint(sm) {
-            padding: 0 80px;
-        }
-
-        @include breakpoint(lg) {
-            padding: 0 120px;
-        }
-
-        .bun {
+        .buntini {
+            @include mask(contain);
             width: 80%;
             height: 90%;
             max-width: 400px;
-            mask: url('/assets/bun.png') center / contain no-repeat;
-            background: linear-gradient(to right, #05FEFE, #46beff, #7089ff 90%) center/cover fixed;
+            background: var(--background);
             position: absolute;
             pointer-events: none;
             opacity: 0.15;
@@ -105,7 +100,7 @@
                 flex-shrink: 0;
                 width: 100%;
                 height: 2px;
-                background: $background;
+                background: var(--background);
                 margin: 12px 0;
                 filter: brightness(0.7);
             }
@@ -132,7 +127,7 @@
                 gap: 0 12px;
                 font-size: 30px;
                 font-variation-settings: 'wght' 400, 'GRAD' 0, 'opsz' 32;
-                background: $background;
+                background: var(--background);
                 background-clip: text;
                 color: transparent;
 
@@ -153,7 +148,7 @@
                     width: 32px;
                     height: 32px;
 
-                    > div {
+                    .mask {
                         @include flex;
                         @include mask(24px);
                         background: inherit;

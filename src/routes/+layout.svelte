@@ -29,11 +29,13 @@
     }
 
     .app {
-        @include flex(1, column);
+        @include flex(1, column, centerY);
         height: 100%;
 
         .navigation {
             @include flex(noShrink);
+            @include max(lg);
+            width: 100%;
             height: 60px;
             background: var(--background);
             background-clip: text;
@@ -46,7 +48,6 @@
 
             @include breakpoint(sm) {
                 font-size: 16px;
-                padding: 0 10%;
             }
 
             .navigation-item {

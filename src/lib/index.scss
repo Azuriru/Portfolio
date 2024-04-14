@@ -53,6 +53,18 @@ $breakpoints: (
     2xl: 1536px
 );
 
+@mixin min($size) {
+    @if map-has-key($breakpoints, $size) {
+        min-width: map-get($breakpoints, $size);
+    }
+}
+
+@mixin max($size) {
+    @if map-has-key($breakpoints, $size) {
+        max-width: map-get($breakpoints, $size);
+    }
+}
+
 @mixin breakpoint($size) {
     @if map-has-key($breakpoints, $size) {
         @media (min-width: map-get($breakpoints, $size)) {
@@ -85,7 +97,7 @@ $breakpoints: (
 }
 
 @mixin mask($size) {
-    mask-size: $size;
+    mask-size: var(--mask-size, $size);
     mask-position: center;
     mask-repeat: no-repeat;
 }
