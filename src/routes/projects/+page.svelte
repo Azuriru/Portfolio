@@ -86,8 +86,9 @@
     }
 
     .main {
-        @include flex(column, 1, startY);
+        @include flex(column, 1, centerY);
         height: 100%;
+        width: 100%;
         overflow-y: auto;
 
         @include breakpoint(md) {
@@ -97,11 +98,9 @@
         .project {
             @include flex(column, center);
             @include position(relative);
-            padding: 20px;
-
-            @include breakpoint(sm) {
-                padding: 30px;
-            }
+            @include max(lg);
+            padding: 20px 2%;
+            gap: 30px;
 
             @include breakpoint(md) {
                 flex-direction: row;
@@ -112,7 +111,7 @@
             &::before {
                 @include position(absolute, stretch);
                 content: '';
-                background: var(--background);
+                // background: var(--background);
                 z-index: -1;
                 clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
                 width: 80%;
@@ -138,22 +137,17 @@
             .preview {
                 @include flex();
 
-                @include maxpoint(md) {
-                    margin-bottom: 30px;
-                }
-
                 @include breakpoint(md) {
-                    max-width: 60%;
+                    width: 50%;
                     max-height: 80%;
-                    margin-right: 30px;
                 }
             }
 
             .info {
-                @include flex(column, noShrink);
+                @include flex(column);
 
                 @include breakpoint(md) {
-                    width: 40%;
+                    width: 50%;
                 }
 
                 .header {

@@ -2,9 +2,8 @@
     --background: linear-gradient(to right, #05fefe, #46beff, #7089ff 90%) center / cover fixed;
 }
 
-.mask {
-    mask-position: center;
-    mask-repeat: no-repeat;
+.buntini {
+    mask-image: url('/assets/bun.png');
 }
 
 .github {
@@ -17,6 +16,7 @@
 
 .stack-overflow {
     mask-image: url('/assets/stack-overflow.png');
+    mask-size: 20px !important;
 }
 
 .react {
