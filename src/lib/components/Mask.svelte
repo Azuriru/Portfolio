@@ -9,25 +9,35 @@
     if (!href) {
         switch(icon) {
             case 'react':
-                return href = 'https://react.dev/';
+                href = 'https://react.dev/';
+                break;
             case 'svelte':
-                return href = 'https://svelte.dev/';
+                href = 'https://svelte.dev/';
+                break;
             case 'skeleton':
-                return href = 'https://skeleton.dev/';
+                href = 'https://skeleton.dev/';
+                break;
             case 'redux':
-                return href = 'https://redux.js.org/';
+                href = 'https://redux.js.org/';
+                break;
             case 'webpack':
-                return href = 'https://webpack.js.org/';
+                href = 'https://webpack.js.org/';
+                break;
             case 'vite':
-                return href = 'https://vitejs.dev/';
+                href = 'https://vitejs.dev/';
+                break;
             case 'tailwind':
-                return href = 'https://tailwindcss.com/';
+                href = 'https://tailwindcss.com/';
+                break;
             case 'discord':
-                return href = 'https://discord.com/';
+                href = 'https://discord.com/';
+                break;
             case 'stack-overflow':
-                return href = 'https://stackoverflow.com/';
+                href = 'https://stackoverflow.com/';
+                break;
             case 'github':
-                return href = 'https://github.com/Azuriru/';
+                href = 'https://github.com/Azuriru/';
+                break;
         }
     }
 </script>
