@@ -1,11 +1,11 @@
 <script lang="ts">
     import { stringify } from '$lib/util/string';
+    import { Mask, type Framework } from '$lib/components';
 
-    type Framework = 'react' | 'svelte' | 'skeleton' | 'redux' | 'webpack' | 'vite' | 'tailwind' | 'divider';
     type Project = {
         name: string;
         description: string;
-        frameworks: Framework[];
+        frameworks: (Framework | 'divider')[];
         github?: string;
         url?: string;
     };
@@ -42,7 +42,8 @@
                             {#if framework === 'divider'}
                                 <div class="divider vertical" />
                             {:else}
-                                <div class="framework {framework}" />
+                                <Mask icon={framework} size={24} />
+                                <!-- <div class="framework {framework}" /> -->
                             {/if}
                         {/each}
                     </div>
@@ -53,9 +54,7 @@
                 </div>
                 <div class="quick-links">
                     {#if github}
-                        <a href="https://github.com/Azuriru/{github}" class="repository">
-                            <div class="github" />
-                        </a>
+                        <Mask size={24} href="https://github.com/Azuriru/{github}" icon="github" />
                     {/if}
                     {#if url}
                         <a href={url} class="live-preview">

@@ -1,7 +1,6 @@
 <script lang="ts">
-    import { MaterialSymbol, Mask } from '$lib/components';
-    import type { MaskIcon } from '$lib/types/Mask';
-    import type { MaterialSymbol as MaterialSymbolType } from 'material-symbols';
+    import { MaterialSymbol, Mask, type MaskIcon } from '$lib/components';
+    import { type MaterialSymbol as MaterialSymbolType } from 'material-symbols';
 
     type ContactOption = {
         name: MaterialSymbolType;
@@ -52,9 +51,11 @@
             {#each contactOptions as option (option)}
                 <div class="contact-option hoverable">
                     {#if option.symbol}
-                        <MaterialSymbol name={option.name} />
+                        <a target="_blank" href={option.url} style="display: flex">
+                            <MaterialSymbol name={option.name} />
+                        </a>
                     {:else}
-                        <Mask icon={option.name} href={option.url} />
+                        <Mask icon={option.name} href={option.url} maskSize={24} />
                     {/if}
                 </div>
             {/each}
