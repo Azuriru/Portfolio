@@ -18,7 +18,8 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "@stylistic"
+        "@stylistic",
+        "antfu"
     ],
     "overrides": [
         {
@@ -36,6 +37,7 @@
         }
     ],
     "rules": {
+        "antfu/consistent-list-newline": "warn",
         // Shared JS/TS config
         "@stylistic/array-bracket-newline": [
             "warn",
@@ -301,7 +303,7 @@
                 },
                 "ExportDeclaration": {
                     "multiline": true,
-                    "minProperties": 3
+                    "consistent": true
                 }
             }
         ],
