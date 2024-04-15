@@ -7,38 +7,27 @@
     export let maskSize: number | null = null;
 
     if (!href) {
-        console.log('running for', icon);
         switch(icon) {
             case 'react':
-                href = 'https://react.dev/';
-                break;
+                return href = 'https://react.dev/';
             case 'svelte':
-                href = 'https://svelte.dev/';
-                break;
+                return href = 'https://svelte.dev/';
             case 'skeleton':
-                href = 'https://skeleton.dev/';
-                break;
+                return href = 'https://skeleton.dev/';
             case 'redux':
-                href = 'https://redux.js.org/';
-                break;
+                return href = 'https://redux.js.org/';
             case 'webpack':
-                href = 'https://webpack.js.org/';
-                break;
+                return href = 'https://webpack.js.org/';
             case 'vite':
-                href = 'https://vitejs.dev/';
-                break;
+                return href = 'https://vitejs.dev/';
             case 'tailwind':
-                href = 'https://tailwindcss.com/';
-                break;
+                return href = 'https://tailwindcss.com/';
             case 'discord':
-                href = 'https://discord.com/';
-                break;
+                return href = 'https://discord.com/';
             case 'stack-overflow':
-                href = 'https://stackoverflow.com/';
-                break;
+                return href = 'https://stackoverflow.com/';
             case 'github':
-                href = 'https://github.com/Azuriru/';
-                break;
+                return href = 'https://github.com/Azuriru/';
         }
     }
 </script>
