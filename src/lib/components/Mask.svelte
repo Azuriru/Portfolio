@@ -59,8 +59,18 @@
         width: var(--size, 32px);
         height: var(--size, 32px);
 
-        .divider {
-            margin: 0 4px;
+        &.divider {
+            flex-shrink: 0;
+            width: var(--size, 100%);
+            height: 2px;
+            margin: 12px 0;
+            filter: brightness(0.7);
+
+            &.vr {
+                margin: 0 4px;
+                width: 2px;
+                height: var(--size, 100%);
+            }
         }
     }
 </style>

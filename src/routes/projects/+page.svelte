@@ -40,15 +40,14 @@
                     <div class="frameworks">
                         {#each frameworks as framework (framework)}
                             {#if framework === 'divider'}
-                                <div class="divider vertical" />
+                                <Mask icon="divider vr" size={24} />
                             {:else}
                                 <Mask icon={framework} size={24} />
-                                <!-- <div class="framework {framework}" /> -->
                             {/if}
                         {/each}
                     </div>
                 </div>
-                <div class="divider" />
+                <Mask icon="divider" />
                 <div class="description">
                     {description}
                 </div>
@@ -71,17 +70,6 @@
     img {
         aspect-ratio: 4/3;
         border: 4px solid rgb(255, 255, 255, 0.1);
-    }
-
-    .hoverable {
-        cursor: pointer;
-        user-select: none;
-        filter: brightness(0.7);
-        transition: 0.5s filter;
-
-        &:hover {
-            filter: brightness(1);
-        }
     }
 
     .main {
@@ -169,25 +157,6 @@
                             width: 24px;
                             height: 24px;
                         }
-
-                        .divider {
-                            height: 24px;
-                            margin: 0 4px;
-                        }
-                    }
-                }
-
-                .divider {
-                    flex-shrink: 0;
-                    width: 100%;
-                    height: 2px;
-                    background: var(--background);
-                    margin: 12px 0;
-
-                    &.vertical {
-                        width: 2px;
-                        height: 100%;
-                        margin: 0 12px;
                     }
                 }
 
@@ -199,14 +168,6 @@
                     @include flex(endX, centerY);
                     gap: 12px;
                     margin-top: 40px;
-
-                    .github {
-                        @include mask(contain);
-                        background: var(--background);
-                        background-clip: border-box;
-                        width: 24px;
-                        height: 24px;
-                    }
 
                     .live-preview {
                         background: var(--background);
