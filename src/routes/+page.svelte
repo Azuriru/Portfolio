@@ -38,7 +38,7 @@
         <div class="header-wrapper">
             About Me
         </div>
-        <div class="divider" />
+        <Mask icon="divider" />
         <div class="text">
             Welcome to my corner of the internet. My journey into the world of web development began somewhat early— at the age of 15, to be exact. What started as a curious exploration has blossomed into a full-fledged passion and profession. Programming is not just a job for me, it's what I love doing. It's about constantly building something new, figuring stuff out, and getting a bit better at it every day.
 
@@ -46,7 +46,7 @@
 
             While my primary focus lies in bringing designs to life through code, my capabilities extend into the backend. This versatility allows me to understand and contribute to the full spectrum of web development, ensuring a cohesive and seamless experience from start to finish.
         </div>
-        <div class="divider" />
+        <Mask icon="divider" />
         <div class="contact">
             {#each contactOptions as option (option)}
                 <div class="contact-option hoverable">
@@ -97,15 +97,6 @@
             @include flex(column, centerX);
             margin: auto;
 
-            .divider {
-                flex-shrink: 0;
-                width: 100%;
-                height: 2px;
-                background: var(--background);
-                margin: 12px 0;
-                filter: brightness(0.7);
-            }
-
             .header-wrapper {
                 display: flex;
                 justify-content: flex-start;
@@ -148,19 +139,6 @@
                     background: inherit;
                     width: 32px;
                     height: 32px;
-
-                    .mask {
-                        @include flex;
-                        @include mask(24px);
-                        background: inherit;
-                        background-clip: border-box;
-                        width: 32px;
-                        height: 32px;
-
-                        &.stack-overflow {
-                            mask-size: 20px;
-                        }
-                    }
                 }
             }
         }
