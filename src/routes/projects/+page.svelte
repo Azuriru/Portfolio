@@ -1,11 +1,11 @@
 <script lang="ts">
     import { stringify } from '$lib/util/string';
-    import { Mask, type Framework } from '$lib/components';
+    import { Mask, type MaskIcon } from '$lib/components';
 
     type Project = {
         name: string;
         description: string;
-        frameworks: (Framework | 'divider')[];
+        stack: MaskIcon[];
         github?: string;
         url?: string;
     };
@@ -14,14 +14,14 @@
         {
             name: 'TiniOS',
             description: 'Designed and built a fully-functional, web-based operating system inspired by the late Windows 7. Features comprehensive window and application management, including individual sessions and interfaces for each application, replicating the core functionalities and user experience of traditional operating systems within a web environment.',
-            frameworks: ['react', 'redux', 'webpack', 'divider', 'svelte', 'vite'],
+            stack: ['react', 'redux', 'webpack', 'divider vr', 'svelte', 'vite'],
             github: 'TiniOS',
             url: 'https://buntini.vercel.app'
         },
         {
             name: 'Skeletrade',
             description: 'Mock-up for a sophisticated trading platform, meticulously designed to simulate real-world trading scenarios with an intuitive interface',
-            frameworks: ['svelte', 'skeleton', 'vite'],
+            stack: ['svelte', 'skeleton', 'vite'],
             url: 'https://azu-skel.vercel.app/trade'
         }
     ] as const;
@@ -29,7 +29,7 @@
 
 <div class="main">
     {#each projects as project (project)}
-        {@const { name, description, frameworks, github, url } = project}
+        {@const { name, description, stack, github, url } = project}
         <div class="project">
             <div class="preview">
                 <img src="/assets/projects/{stringify(name)}.png" alt={stringify(name)} />
@@ -37,13 +37,9 @@
             <div class="info">
                 <div class="header">
                     <div class="title">{name}</div>
-                    <div class="frameworks">
-                        {#each frameworks as framework (framework)}
-                            {#if framework === 'divider'}
-                                <Mask icon="divider vr" size={24} />
-                            {:else}
-                                <Mask icon={framework} size={24} />
-                            {/if}
+                    <div class="stack">
+                        {#each stack as icon (icon)}
+                            <Mask {icon} size={24} />
                         {/each}
                     </div>
                 </div>
@@ -146,17 +142,9 @@
                         letter-spacing: 2px;
                     }
 
-                    .frameworks {
+                    .stack {
                         @include flex;
                         gap: 6px;
-
-                        .framework {
-                            @include mask(contain);
-                            flex-shrink: 0;
-                            background: var(--background);
-                            width: 24px;
-                            height: 24px;
-                        }
                     }
                 }
 

@@ -101,3 +101,16 @@ $breakpoints: (
     mask-position: center;
     mask-repeat: no-repeat;
 }
+
+@mixin mask-image($class, $path: null) {
+    $asset-path: '/assets/icons';
+
+    .#{$class} {
+        @if $path {
+            mask-image: url('#{$asset-path}/#{$path}');
+        } @else {
+            mask-image: url('#{$asset-path}/#{$class}.svg');
+        }
+        @content;
+    }
+}

@@ -1,0 +1,29 @@
+:root {
+    --background: linear-gradient(to right, #05fefe, #46beff, #7089ff 90%) center / cover fixed;
+}
+
+.buntini {
+    mask-image: url('/assets/bun.png');
+}
+
+.github {
+    mask-image: url('/assets/github.png');
+}
+
+.discord {
+    mask-image: url('/assets/discord.png');
+}
+
+.stack-overflow {
+    mask-image: url('/assets/stack-overflow.png');
+    mask-size: 20px !important;
+}
+
+@include mask-image('react');
+@include mask-image('svelte');
+@include mask-image('skeleton');
+@include mask-image('redux');
+@include mask-image('tailwind');
+@include mask-image('vite');
+@include mask-image('webpack');
+@include mask-image('nodejs');
