@@ -29,6 +29,8 @@
             justify-content: space-evenly;
         } @else if $prop == column {
             flex-direction: column;
+        } @else if $prop == wrap {
+            flex-wrap: wrap;
         } @else if $prop == 1 or $prop == one {
             flex: 1 1 0%;
         } @else if $prop == auto {

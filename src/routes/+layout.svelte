@@ -10,7 +10,7 @@
 <div class="app">
     <div class="navigation">
         <a class="navigation-item hoverable" href="/">About</a>
-        <a class="navigation-item hoverable" href="/">Skillset</a>
+        <a class="navigation-item hoverable" href="/skillset">Skillset</a>
         <a class="navigation-item hoverable" href="/projects">Projects</a>
     </div>
     <slot />
