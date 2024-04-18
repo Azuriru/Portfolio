@@ -6,24 +6,33 @@
     mask-image: url('/assets/bun.png');
 }
 
-.github {
-    mask-image: url('/assets/github.png');
-}
+@include mask-image('github');
+@include mask-image('discord');
+@include mask-image('stack-overflow');
 
-.discord {
-    mask-image: url('/assets/discord.png');
-}
+@include mask-image('html');
+@include mask-image('css');
+@include mask-image('javascript');
+@include mask-image('typescript');
+@include mask-image('sass');
 
-.stack-overflow {
-    mask-image: url('/assets/stack-overflow.png');
-    mask-size: 20px !important;
-}
-
-@include mask-image('react');
 @include mask-image('svelte');
+@include mask-image('react');
 @include mask-image('skeleton');
-@include mask-image('redux');
+@include mask-image('express');
+@include mask-image('electron');
+
 @include mask-image('tailwind');
-@include mask-image('vite');
-@include mask-image('webpack');
+@include mask-image('material-design');
+@include mask-image('font-awesome');
+
+@include mask-image('redux');
+@include mask-image('jquery');
+
+@include mask-image('git');
 @include mask-image('nodejs');
+@include mask-image('babel');
+@include mask-image('webpack');
+@include mask-image('vite');
+@include mask-image('postcss');
+@include mask-image('eslint');

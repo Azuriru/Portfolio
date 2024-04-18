@@ -6,40 +6,35 @@
     export let size: number | null = null;
     export let maskSize: number | null = null;
 
-    if (!href) {
-        switch(icon) {
-            case 'react':
-                href = 'https://react.dev/';
-                break;
-            case 'svelte':
-                href = 'https://svelte.dev/';
-                break;
-            case 'skeleton':
-                href = 'https://skeleton.dev/';
-                break;
-            case 'redux':
-                href = 'https://redux.js.org/';
-                break;
-            case 'webpack':
-                href = 'https://webpack.js.org/';
-                break;
-            case 'vite':
-                href = 'https://vitejs.dev/';
-                break;
-            case 'tailwind':
-                href = 'https://tailwindcss.com/';
-                break;
-            case 'discord':
-                href = 'https://discord.com/';
-                break;
-            case 'stack-overflow':
-                href = 'https://stackoverflow.com/';
-                break;
-            case 'github':
-                href = 'https://github.com/Azuriru/';
-                break;
-        }
-    }
+    const DEFAULT_HREF = {
+        html: 'https://www.w3.org/html/',
+        css: 'https://www.w3.org/Style/CSS/Overview.en.html',
+        javascript: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+        typescript: 'https://www.typescriptlang.org/',
+        sass: 'https://sass-lang.com/',
+        svelte: 'https://svelte.dev/',
+        react: 'https://react.dev/',
+        skeleton: 'https://skeleton.dev/',
+        express: 'https://expressjs.com/',
+        electron: 'https://electronjs.org/',
+        tailwind: 'https://tailwindcss.com/',
+        'material-design': 'https://m3.material.io/',
+        'font-awesome': 'https://fontawesome.com/',
+        redux: 'https://redux.js.org/',
+        jquery: 'https://jquery.com/',
+        git: 'https://git-scm.com/',
+        nodejs: 'https://nodejs.org/en',
+        babel: 'https://babeljs.io/',
+        webpack: 'https://webpack.js.org/',
+        vite: 'https://vitejs.dev/',
+        postcss: 'https://postcss.org/',
+        eslint: 'https://eslint.org/',
+        discord: 'https://discord.com/',
+        'stack-overflow': 'https://stackoverflow.com/',
+        github: 'https://github.com/Azuriru/'
+    } as const;
+
+    if (!href) href = DEFAULT_HREF[icon];
 </script>
 
 {#if href}
