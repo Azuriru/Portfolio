@@ -60,6 +60,9 @@
                 </div>
             {/each}
         </div>
+        <div class="special-thanks">
+            Special thanks to my good friend Andrey
+        </div>
     </div>
 </div>
 
@@ -124,7 +127,7 @@
                 color: transparent;
 
                 @include maxpoint(md) {
-                    margin-bottom: 12px;
+                    // margin-bottom: 12px;
                 }
 
                 @include breakpoint(md) {
@@ -139,6 +142,29 @@
                     background: inherit;
                     width: 32px;
                     height: 32px;
+                }
+            }
+
+            .special-thanks {
+                @include flex(centerX);
+                font-size: 16px;
+                font-variant: small-caps;
+                font-weight: 600;
+                gap: 0 12px;
+                background: var(--background);
+                background-clip: text;
+                color: transparent;
+
+                @include maxpoint(md) {
+                    margin-top: 48px;
+                    // margin-bottom: 12px;
+                }
+
+                @include breakpoint(md) {
+                    @include position(absolute, (
+                        bottom: 24px,
+                        left: 24px
+                    ));
                 }
             }
         }
