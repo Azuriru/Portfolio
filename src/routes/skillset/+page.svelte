@@ -53,6 +53,12 @@
                 @include flex(column, center);
                 width: 120px;
                 height: 120px;
+                transition: 0.5s filter, 0.5s transform;
+
+                &:hover {
+                    filter: brightness(1.2);
+                    transform: scale(1.1);
+                }
 
                 .name {
                     margin-top: 12px;
