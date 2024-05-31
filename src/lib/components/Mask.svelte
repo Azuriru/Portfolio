@@ -23,6 +23,7 @@
         redux: 'https://redux.js.org/',
         jquery: 'https://jquery.com/',
         git: 'https://git-scm.com/',
+        nextjs: 'https://nextjs.org/',
         nodejs: 'https://nodejs.org/en',
         babel: 'https://babeljs.io/',
         webpack: 'https://webpack.js.org/',
