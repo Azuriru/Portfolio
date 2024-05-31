@@ -81,7 +81,7 @@
     .main {
         @include flex(1, center);
         @include max(lg);
-        padding: 20px 2%;
+        padding: v(5) 2%;
         height: 100%;
         overflow-y: auto;
 

@@ -1,3 +1,15 @@
+$breakpoints: (
+    sm: 640px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+    2xl: 1536px
+);
+
+@function v($base, $unit: px, $multiplier: 4) {
+    @return #{$base * $multiplier}#{$unit};
+}
+
 @mixin flex($props...) {
     @if index($props, hidden) {
         display: none;
@@ -46,14 +58,6 @@
         }
     }
 }
-
-$breakpoints: (
-    sm: 640px,
-    md: 768px,
-    lg: 1024px,
-    xl: 1280px,
-    2xl: 1536px
-);
 
 @mixin min($size) {
     @if map-has-key($breakpoints, $size) {

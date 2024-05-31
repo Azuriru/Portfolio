@@ -4,7 +4,7 @@
 
     const technologies = [
         ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Sass'],
-        ['Svelte', 'React', 'Skeleton', 'Express', 'Electron'],
+        ['Svelte', 'React', 'Next.js', 'Skeleton', 'Express', 'Electron'],
         ['Tailwind', 'Material Design', 'Font Awesome'],
         ['Redux', 'jQuery'],
         ['Git', 'Node.js', 'Babel', 'Webpack', 'Vite', 'PostCSS', 'ESlint']
@@ -17,7 +17,7 @@
     <div class="header">Skills</div>
     <Mask icon="divider" />
     <div class="technologies" style="--size: 48px">
-        {#each technologies.flatMap((tech) => tech) as tech (tech)}
+        {#each technologies.flat() as tech (tech)}
             <div class="tech">
                 <Mask icon={iconify(tech)} />
                 <div class="name">

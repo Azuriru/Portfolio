@@ -4,7 +4,7 @@ export type Framework = 'svelte' | 'react' | 'skeleton' | 'express' | 'electron'
 
 export type Design = 'tailwind' | 'material-design' | 'font-awesome';
 
-export type Library = 'redux' | 'jquery';
+export type Library = 'nextjs' | 'redux' | 'jquery';
 
 export type Tool = 'git' | 'nodejs' | 'babel' | 'webpack' | 'vite' | 'postcss' | 'eslint';
 
