@@ -4,7 +4,7 @@
 
     const technologies = [
         ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Sass'],
-        ['Svelte', 'React', 'Next.js', 'Skeleton', 'Express', 'Electron'],
+        ['Svelte', 'React', 'Next.js', 'Vue', 'Nuxt', 'Skeleton', 'Express', 'Electron'],
         ['Tailwind', 'Material Design', 'Font Awesome'],
         ['Redux', 'jQuery'],
         ['Git', 'Node.js', 'Babel', 'Webpack', 'Vite', 'PostCSS', 'ESlint']

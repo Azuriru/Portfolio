@@ -14,6 +14,8 @@
         sass: 'https://sass-lang.com/',
         svelte: 'https://svelte.dev/',
         react: 'https://react.dev/',
+        vue: 'https://vuejs.org/',
+        nuxt: 'https://nuxt.com/',
         skeleton: 'https://skeleton.dev/',
         express: 'https://expressjs.com/',
         electron: 'https://electronjs.org/',
