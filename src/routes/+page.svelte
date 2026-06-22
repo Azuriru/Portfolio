@@ -37,12 +37,12 @@
     ] as const;
 
     const preferences = [
-        ['OS', 'Windows'],
+        ['Operating System', 'Windows'],
         ['Browser', 'Opera GX'],
         ['IDE', 'VSC'],
         ['Media Players', 'VLC', 'Syncplay'],
-        ['Design', 'Figma'],
-        ['A/V Editor', 'ffmpeg'],
+        ['Design Tool', 'Figma'],
+        ['Audio/Video Editor', 'ffmpeg'],
         ['Image Editor', 'PaintDotNet'],
         ['Social Platforms', 'Discord', 'WhatsApp'],
         ['Languages', 'TypeScript', 'SASS'],
