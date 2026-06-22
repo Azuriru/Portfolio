@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { updateByIndex } from '$lib/util/array';
     import '../app.css';
     import './+layout.scss';
 </script>
