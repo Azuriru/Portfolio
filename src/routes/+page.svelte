@@ -196,6 +196,12 @@
                         margin: 8px 0;
                     }
 
+                    @include maxpoint(lg) {
+                        :global(.divider):last-of-type {
+                            margin: 8px 0 12px;
+                        }
+                    }
+
                     .preference {
                         @include flex(centerY);
                         padding: 0 12px;
@@ -221,6 +227,12 @@
                 }
 
                 &.contact {
+                    @include maxpoint(lg) {
+                        :global(.divider) {
+                            display: none;
+                        }
+                    }
+
                     .contact-options {
                         @include flex(endX);
                         gap: 0 12px;
