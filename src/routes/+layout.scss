@@ -1,41 +1,67 @@
 :root {
-    --background: linear-gradient(to right, #05fefe, #46beff, #7089ff 90%) center / cover fixed;
+    --background: linear-gradient(to right, #05fefe, #46beff, #7089ff 90%) center / #{breakwidth("lg")} fixed;
 }
 
 .buntini {
-    mask-image: url('/assets/bun.png');
+    mask-image: url("/assets/bun.png");
 }
 
-@include mask-image('github');
-@include mask-image('discord');
-@include mask-image('stack-overflow');
+// Languages
+@include mask-image("html");
+@include mask-image("css");
+@include mask-image("javascript");
+@include mask-image("typescript");
+@include mask-image("sass");
 
-@include mask-image('html');
-@include mask-image('css');
-@include mask-image('javascript');
-@include mask-image('typescript');
-@include mask-image('sass');
+// Frameworks
+@include mask-image("svelte");
+@include mask-image("react");
+@include mask-image("nextjs");
+@include mask-image("vue");
+@include mask-image("nuxt");
+@include mask-image("express");
+@include mask-image("electron");
 
-@include mask-image('svelte');
-@include mask-image('react');
-@include mask-image('nextjs');
-@include mask-image('vue');
-@include mask-image('nuxt');
-@include mask-image('skeleton');
-@include mask-image('express');
-@include mask-image('electron');
+// UI frameworks
+@include mask-image("figma");
+@include mask-image("tailwind");
+@include mask-image("shadcn");
+@include mask-image("skeleton");
+@include mask-image("material-design");
+@include mask-image("font-awesome");
+@include mask-image("lucide");
 
-@include mask-image('tailwind');
-@include mask-image('material-design');
-@include mask-image('font-awesome');
+// JS frameworks
+@include mask-image("redux");
+@include mask-image("jquery");
 
-@include mask-image('redux');
-@include mask-image('jquery');
+// Tools and Utiliies
+@include mask-image("git");
+@include mask-image("nodejs");
+@include mask-image("babel");
+@include mask-image("webpack");
+@include mask-image("vite");
+@include mask-image("postcss");
+@include mask-image("eslint");
+@include mask-image("stylelint");
+@include mask-image("stylistic");
 
-@include mask-image('git');
-@include mask-image('nodejs');
-@include mask-image('babel');
-@include mask-image('webpack');
-@include mask-image('vite');
-@include mask-image('postcss');
-@include mask-image('eslint');
+// Platforms
+@include mask-image("github");
+@include mask-image("gitlab");
+@include mask-image("discord");
+@include mask-image("whatsapp");
+@include mask-image("stack-overflow");
+
+// Software
+@include mask-image("windows");
+@include mask-image("opera-gx");
+@include mask-image("vsc");
+@include mask-image("figma");
+@include mask-image("ffmpeg");
+@include mask-image("vlc");
+@include mask-image("syncplay");
+@include mask-image("paintdotnet");
+
+// Others
+@include mask-image("marvel-rivals");

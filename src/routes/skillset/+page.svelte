@@ -16,7 +16,9 @@
 <div class="main">
     <div class="header">Skills</div>
     <Mask icon="divider" />
-    <div class="technologies" style="--size: 48px">
+    <div class="technologies" style="
+
+--size: 48px;">
         {#each technologies.flat() as tech (tech)}
             <div class="tech">
                 <Mask icon={iconify(tech)} />

@@ -7,41 +7,61 @@
     export let maskSize: number | null = null;
 
     const DEFAULT_HREF = {
+        // Languages
         html: 'https://www.w3.org/html/',
         css: 'https://www.w3.org/Style/CSS/Overview.en.html',
         javascript: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
         typescript: 'https://www.typescriptlang.org/',
         sass: 'https://sass-lang.com/',
+
+        // Frameworks
         svelte: 'https://svelte.dev/',
         react: 'https://react.dev/',
+        nextjs: 'https://nextjs.org/',
         vue: 'https://vuejs.org/',
         nuxt: 'https://nuxt.com/',
-        skeleton: 'https://skeleton.dev/',
         express: 'https://expressjs.com/',
         electron: 'https://electronjs.org/',
+
+        // Design
         tailwind: 'https://tailwindcss.com/',
+        shadcn: 'https://ui.shadcn.com/',
+        skeleton: 'https://skeleton.dev/',
         'material-design': 'https://m3.material.io/',
         'font-awesome': 'https://fontawesome.com/',
+        lucide: 'https://lucide.dev/',
+
+        // Libraries
         redux: 'https://redux.js.org/',
         jquery: 'https://jquery.com/',
+
+        // Tools
         git: 'https://git-scm.com/',
-        nextjs: 'https://nextjs.org/',
         nodejs: 'https://nodejs.org/en',
         babel: 'https://babeljs.io/',
         webpack: 'https://webpack.js.org/',
         vite: 'https://vitejs.dev/',
         postcss: 'https://postcss.org/',
         eslint: 'https://eslint.org/',
+
+        // Contact
+        github: 'https://github.com/Azuriru/',
+        gitlab: 'https://gitlab.com/Azuriru/',
         discord: 'https://discord.com/',
-        'stack-overflow': 'https://stackoverflow.com/',
-        github: 'https://github.com/Azuriru/'
-    } as const;
+        'stack-overflow': 'https://stackoverflow.com/'
+    } as const as Record<MaskIcon, string>;
 
     if (!href) href = DEFAULT_HREF[icon];
 </script>
 
 {#if href}
-    <a {href} target="_blank" style:--size={size && `${size}px`} style:--mask-size={maskSize && `${maskSize}px`}>
+    <a
+        {href}
+        title={icon}
+        target="_blank"
+        style:--size={size && `${size}px`}
+        style:--mask-size={maskSize && `${maskSize}px`}
+    >
         <div class="mask {icon}" />
     </a>
 {:else}

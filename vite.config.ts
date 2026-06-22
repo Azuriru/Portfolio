@@ -6,7 +6,7 @@ export default defineConfig({
 	css: {
         preprocessorOptions: {
             scss: {
-                additionalData: `@use '$lib/index.scss' as *;`
+                additionalData: `@use '$lib/scss/index.scss' as *;`
             },
         },
     },

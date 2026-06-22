@@ -1,6 +1,7 @@
 <script lang="ts">
     import { MaterialSymbol, Mask, type MaskIcon } from '$lib/components';
     import { type MaterialSymbol as MaterialSymbolType } from 'material-symbols';
+    import { stringify } from '$lib/util/string';
 
     type ContactOption = {
         name: MaterialSymbolType;
@@ -17,6 +18,10 @@
             url: 'https://github.com/Azuriru'
         },
         {
+            name: 'gitlab',
+            url: 'https://gitlab.com/Azuriru'
+        },
+        {
             name: 'discord',
             url: 'https://discord.com/users/187524257280950272'
         },
@@ -26,42 +31,86 @@
         },
         {
             name: 'mail',
-            url: 'mailto:gamemoderatorobyn@gmail.com',
+            url: 'mailto:kegumine@gmail.com',
             symbol: true
         }
     ] as const;
+
+    const preferences = [
+        ['OS', 'Windows'],
+        ['Browser', 'Opera GX'],
+        ['IDE', 'VSC'],
+        ['Media Players', 'VLC', 'Syncplay'],
+        ['Design', 'Figma'],
+        ['A/V Editor', 'ffmpeg'],
+        ['Image Editor', 'PaintDotNet'],
+        ['Social Platforms', 'Discord', 'WhatsApp'],
+        ['Languages', 'TypeScript', 'SASS'],
+        ['UI Framework', 'Svelte'],
+        ['Linters', 'ESLint', 'Stylelint', 'Stylistic'],
+        ['Games', 'Marvel Rivals']
+    ];
+
+    const iconify = (str: string) => stringify(str).replace(/\./g, '') as MaskIcon;
 </script>
 
 <div class="main">
     <div class="buntini" />
-    <div class="info">
-        <div class="header-wrapper">
-            About Me
-        </div>
-        <Mask icon="divider" />
-        <div class="text">
-            Welcome to my corner of the internet. My journey into the world of web development began somewhat early— at the age of 15, to be exact. What started as a curious exploration has blossomed into a full-fledged passion and profession. Programming is not just a job for me, it's what I love doing. It's about constantly building something new, figuring stuff out, and getting a bit better at it every day.
+    <div class="sections">
+        <div class="section me">
+            <div class="header">
+                About Me
+            </div>
+            <Mask icon="divider" />
+            <div class="content">
+                Welcome to my corner of the internet.
 
-            Specializing in frontend development, I have dedicated myself to crafting engaging, intuitive, and visually appealing digital experiences. My toolkit is filled with the latest technologies and methodologies in UI/UX design, ensuring that each project is not only aesthetically pleasing but also user-friendly and accessible.
+                My aliases online include Robyn, Azuriru or Kegumine, depending on whichever isn't taken yet, 'cuz let's be real, finding a consistent, unique username in this day and age with no numbers or weird substitutions is an achievement in an off itself.
 
-            While my primary focus lies in bringing designs to life through code, my capabilities extend into the backend. This versatility allows me to understand and contribute to the full spectrum of web development, ensuring a cohesive and seamless experience from start to finish.
+                I got into programming at the age of 15 starting out as a humble editor on the platform formerly known as Wikia. There, I picked up HTML, CSS and JS, and decided I liked doing that but without all the Mediawiki guardrails so I continued to pursue it casually.
+
+                Before I knew it, the years had passed and the one thing consistent in my life was always programming. I can get bored of games but I always find myself coming back to programming in the end. For me, it's about constantly building something new, figuring stuff out, and getting a bit better at it every day. It's the achivement that I didn't need to google something to get it done. It's difficult sometimes, but that's part of the fun, I think.
+
+                In my free time, I work on my hobby projects, contribute to open source software, play games with my friends, archive my childhood shows and combat my inner demons over my crippling trading card addiction.
+            </div>
         </div>
-        <Mask icon="divider" />
-        <div class="contact">
-            {#each contactOptions as option (option)}
-                <div class="contact-option hoverable">
-                    {#if option.symbol}
-                        <a target="_blank" href={option.url} style="display: flex">
-                            <MaterialSymbol name={option.name} />
-                        </a>
-                    {:else}
-                        <Mask icon={option.name} href={option.url} maskSize={24} />
-                    {/if}
+
+        <div class="section preferences">
+            <div class="header">
+                Preferences
+            </div>
+            <Mask icon="divider" />
+            {#each preferences as preference (preference)}
+                {@const [type, ...icons] = preference}
+                <div class="preference">
+                    <span class="type">
+                        {type}
+                    </span>
+                    {#each icons as icon (icon)}
+                        <div class="icon">
+                            <Mask size={20} icon={iconify(icon)} />
+                        </div>
+                    {/each}
                 </div>
+                <Mask icon="divider" />
             {/each}
         </div>
-        <div class="special-thanks">
-            Special thanks to my good friend Andrey
+
+        <div class="section contact">
+            <Mask icon="divider" />
+            <div class="contact-options">
+                {#each contactOptions as option (option)}
+                    <div class="contact-option hoverable">
+                        {#if option.symbol}
+                            <a target="_blank" href={option.url} style="display: flex;">
+                                <MaterialSymbol name={option.name} />
+                            </a>
+                        {:else}
+                            <Mask icon={option.name} href={option.url} maskSize={24} />
+                        {/if}
+                    </div>
+                {/each}
+            </div>
         </div>
     </div>
 </div>
@@ -79,10 +128,12 @@
     }
 
     .main {
-        @include flex(1, center);
-        @include max(lg);
-        padding: v(5) 2%;
+        @include flex(1, column);
+        justify-content: safe center;
+        align-items: safe center;
         height: 100%;
+        width: 100%;
+        padding: 20px 2%;
         overflow-y: auto;
 
         .buntini {
@@ -96,75 +147,96 @@
             opacity: 0.15;
         }
 
-        .info {
+        .sections {
             @include flex(column, centerX);
+            @include max(lg);
             margin: auto;
 
-            .header-wrapper {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                padding: 0 12px;
-                text-transform: uppercase;
-                letter-spacing: 2px;
+            @include breakpoint(lg) {
+                display: grid;
+                grid-auto-columns: 3fr 1fr;
+                gap: 0 16px;
             }
 
-            .text {
-                padding: 0 12px;
-                line-height: 26px;
-                letter-spacing: 0.5px;
-                white-space: pre-line;
-                text-align: justify;
-            }
+            .section {
+                @include flex(column);
 
-            .contact {
-                @include flex(endX);
-                gap: 0 12px;
-                font-size: 30px;
-                font-variation-settings: 'wght' 400, 'GRAD' 0, 'opsz' 32;
-                background: var(--background);
-                background-clip: text;
-                color: transparent;
-
-                @include maxpoint(md) {
-                    // margin-bottom: 12px;
+                .header {
+                    @include flex(startX, centerY);
+                    padding: 0 12px;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
                 }
 
-                @include breakpoint(md) {
-                    @include position(absolute, (
-                        bottom: 24px,
-                        right: 24px
-                    ));
+                .content {
+                    padding: 0 12px;
+                    line-height: 26px;
+                    letter-spacing: 0.5px;
+                    white-space: pre-line;
+                    text-align: justify;
                 }
 
-                .contact-option {
-                    @include flex(center);
-                    background: inherit;
-                    width: 32px;
-                    height: 32px;
-                }
-            }
+                &.me {
+                    grid-column: 1 / 1;
 
-            .special-thanks {
-                @include flex(centerX);
-                font-size: 16px;
-                font-variant: small-caps;
-                font-weight: 600;
-                gap: 0 12px;
-                background: var(--background);
-                background-clip: text;
-                color: transparent;
-
-                @include maxpoint(md) {
-                    margin-top: 48px;
-                    // margin-bottom: 12px;
+                    @include maxpoint(lg) {
+                        margin-bottom: 32px;
+                    }
                 }
 
-                @include breakpoint(md) {
-                    @include position(absolute, (
-                        bottom: 24px,
-                        left: 24px
-                    ));
+                &.preferences {
+                    grid-column: 2 / 2;
+                    grid-row: 1 / 3;
+
+                    .header + :global(.divider) {
+                        margin: 12px 0 8px;
+                    }
+
+                    :global(.divider) {
+                        margin: 8px 0;
+                    }
+
+                    .preference {
+                        @include flex(centerY);
+                        padding: 0 12px;
+                        font-size: 13px;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+
+                        .type {
+                            @include flex(1);
+                        }
+
+                        .icon {
+                            @include flex(center);
+                            @include cube(24px);
+                            transition: 0.5s filter, 0.5s transform;
+                        }
+
+                        &:hover .icon {
+                            filter: brightness(1.2);
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+
+                &.contact {
+                    .contact-options {
+                        @include flex(endX);
+                        gap: 0 12px;
+                        font-size: 30px;
+                        font-variation-settings: "wght" 400, "GRAD" 0, "opsz" 32;
+                        background: var(--background);
+                        background-clip: text;
+                        color: transparent;
+
+                        .contact-option {
+                            @include flex(center);
+                            background: inherit;
+                            width: 32px;
+                            height: 32px;
+                        }
+                    }
                 }
             }
         }

@@ -51,7 +51,7 @@
             }
 
             .navigation-item {
-                @include flex(center, grow);
+                @include flex(center, 1);
                 background: inherit;
                 height: 100%;
             }
