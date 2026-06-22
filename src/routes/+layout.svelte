@@ -7,6 +7,7 @@
     <title>Azuriru</title>
     <meta name="title" content="Azuriru's Portfolio" />
     <meta name="description" content="There is a only finite amount of ways to screw something up, so eventually, you'll succeed." />
+    <meta name="theme-color" content="#00ffff" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://azuriru.vercel.app" />
