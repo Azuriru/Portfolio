@@ -9,10 +9,14 @@
     <meta name="description" content="There is a only finite amount of ways to screw something up, so eventually, you'll succeed." />
     <meta name="theme-color" content="#00ffff" />
 
+    <meta property="og:type" content="website" />
     <meta property="og:url" content="https://azuriru.vercel.app" />
     <meta property="og:title" content="Azuriru" />
     <meta property="og:description" content="There is a only finite amount of ways to screw something up, so eventually, you'll succeed." />
     <meta property="og:image" content="https://azuriru.vercel.app/assets/buntini_logo.png" />
+
+    <meta property="og:site_name" content="Azuriru" />
+    <meta property="og:locale" content="en_US" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://azuriru.vercel.app" />
