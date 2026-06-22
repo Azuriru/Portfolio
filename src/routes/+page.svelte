@@ -65,13 +65,13 @@
             <div class="content">
                 Welcome to my corner of the internet.
 
-                My aliases online include Robyn, Azuriru or Kegumine, depending on whichever isn't taken yet, 'cuz let's be real, finding a consistent, unique username in this day and age with no numbers or weird substitutions is an achievement in an off itself.
+                My aliases online include Robyn, Azuriru or Kegumine, depending on whichever isn't taken yet, 'cuz let's be real, finding a consistent, unique username in this day and age with no numbers or weird substitutions is an achievement in and off itself.
 
-                I got into programming at the age of 15 starting out as a humble editor on the platform formerly known as Wikia. There, I picked up HTML, CSS and JS, and decided I liked doing that but without all the Mediawiki guardrails so I continued to pursue it casually.
+                I got into programming at the age of 15, starting out as a humble editor on the platform formerly known as Wikia. There, I picked up HTML, CSS, and JS, and decided I liked doing that but without all the MediaWiki guardrails so I continued to pursue it casually.
 
-                Before I knew it, the years had passed and the one thing consistent in my life was always programming. I can get bored of games but I always find myself coming back to programming in the end. For me, it's about constantly building something new, figuring stuff out, and getting a bit better at it every day. It's the achivement that I didn't need to google something to get it done. It's difficult sometimes, but that's part of the fun, I think.
+                Before I knew it, the years had passed, and the one thing consistent in my life was always programming. I can get bored of games, but I always find myself coming back to programming in the end. For me, it's about constantly building something new, figuring stuff out, and getting a bit better at it every day. It's the achievement that I didn't need to google something to get it done. It's difficult sometimes, but that's part of the fun, I think.
 
-                In my free time, I work on my hobby projects, contribute to open source software, play games with my friends, archive my childhood shows and combat my inner demons over my crippling trading card addiction.
+                In my free time, I work on my hobby projects, contribute to open-source software, play games with my friends, archive my childhood shows, and combat my inner demons over my crippling trading card addiction.
             </div>
         </div>
 
