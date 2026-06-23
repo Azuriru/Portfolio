@@ -90,6 +90,7 @@
         background-clip: border-box;
         width: var(--size, 32px);
         height: var(--size, 32px);
+        will-change: filter;
 
         &.divider {
             flex-shrink: 0;
