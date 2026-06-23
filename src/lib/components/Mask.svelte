@@ -1,12 +1,12 @@
 <script lang="ts">
-    import type { MaskIcon } from './Mask';
+    import type { MaskIcon, Misc } from './Mask';
 
     export let icon: MaskIcon;
     export let href: string | null = null;
     export let size: number | null = null;
     export let maskSize: number | null = null;
 
-    const DEFAULT_HREF = {
+    const DEFAULT_HREF: Record<Exclude<MaskIcon, Misc>, string> = {
         // Languages
         html: 'https://www.w3.org/html/',
         css: 'https://www.w3.org/Style/CSS/Overview.en.html',
@@ -43,13 +43,27 @@
         vite: 'https://vitejs.dev/',
         postcss: 'https://postcss.org/',
         eslint: 'https://eslint.org/',
+        stylelint: 'https://stylelint.io/',
+        stylistic: 'https://eslint.style/',
 
-        // Contact
+        // Platforms
         github: 'https://github.com/Azuriru/',
         gitlab: 'https://gitlab.com/Azuriru/',
         discord: 'https://discord.com/',
-        'stack-overflow': 'https://stackoverflow.com/'
-    } as const as Record<MaskIcon, string>;
+        whatsapp: 'https://web.whatsapp.com/',
+        'stack-overflow': 'https://stackoverflow.com/',
+
+        // Software
+        windows: 'https://massgrave.dev/', // 'https://www.microsoft.com/en-us/windows/',
+        'opera-gx': 'https://www.opera.com/gx/',
+        vsc: 'https://code.visualstudio.com/',
+        figma: 'https://www.figma.com/',
+        vlc: 'https://www.videolan.org/',
+        syncplay: 'https://syncplay.pl/',
+        paintdotnet: 'https://paint.net/',
+        ffmpeg: 'https://www.ffmpeg.org/',
+        'marvel-rivals': 'https://www.marvelrivals.com/'
+    } as const;
 
     if (!href) href = DEFAULT_HREF[icon];
 </script>

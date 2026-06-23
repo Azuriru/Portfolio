@@ -6,11 +6,11 @@ export type Design = 'tailwind' | 'shadcn' | 'skeleton' | 'material-design' | 'f
 
 export type Library = 'redux' | 'jquery';
 
-export type Tool = 'git' | 'nodejs' | 'babel' | 'webpack' | 'vite' | 'postcss' | 'eslint';
+export type Tool = 'git' | 'nodejs' | 'babel' | 'webpack' | 'vite' | 'postcss' | 'eslint' | 'stylelint' | 'stylistic';
 
-export type Platforms = 'github' | 'gitlab' | 'discord' | 'stack-overflow';
+export type Platforms = 'github' | 'gitlab' | 'discord' | 'whatsapp' | 'stack-overflow';
 
-export type Software = 'windows' | 'vsc' | 'figma' | 'vlc' | 'syncplay';
+export type Software = 'windows' | 'opera-gx' | 'vsc' | 'figma' | 'vlc' | 'syncplay' | 'paintdotnet' | 'ffmpeg' | 'marvel-rivals';
 
 export type Misc = 'divider' | 'divider vr';
 

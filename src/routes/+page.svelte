@@ -204,6 +204,7 @@
 
                     .preference {
                         @include flex(centerY);
+                        gap: 4px;
                         padding: 0 12px;
                         font-size: 13px;
                         text-transform: uppercase;
@@ -217,11 +218,11 @@
                             @include flex(center);
                             @include cube(24px);
                             transition: 0.5s filter, 0.5s transform;
-                        }
 
-                        &:hover .icon {
-                            filter: brightness(1.2);
-                            transform: scale(1.1);
+                            &:hover {
+                                filter: brightness(1.2);
+                                transform: scale(1.1);
+                            }
                         }
                     }
                 }
