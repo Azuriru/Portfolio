@@ -27,7 +27,7 @@ body {
 
     &::before {
         content: '';
-        background: url('/assets/background.png') center / cover fixed;
+        background: url('/assets/background.avif') center / cover fixed;
         position: absolute;
         top: 0;
         right: 0;
