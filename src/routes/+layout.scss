@@ -22,8 +22,7 @@
 @include mask-image("express");
 @include mask-image("electron");
 
-// UI frameworks
-@include mask-image("figma");
+// Design
 @include mask-image("tailwind");
 @include mask-image("shadcn");
 @include mask-image("skeleton");
@@ -31,7 +30,7 @@
 @include mask-image("font-awesome");
 @include mask-image("lucide");
 
-// JS frameworks
+// Libraries
 @include mask-image("redux");
 @include mask-image("jquery");
 
@@ -41,6 +40,7 @@
 @include mask-image("babel");
 @include mask-image("webpack");
 @include mask-image("vite");
+@include mask-image("alchemy");
 @include mask-image("postcss");
 @include mask-image("eslint");
 @include mask-image("stylelint");

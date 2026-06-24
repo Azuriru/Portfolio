@@ -41,6 +41,7 @@
         babel: 'https://babeljs.io/',
         webpack: 'https://webpack.js.org/',
         vite: 'https://vitejs.dev/',
+        alchemy: 'https://www.alchemy.com/',
         postcss: 'https://postcss.org/',
         eslint: 'https://eslint.org/',
         stylelint: 'https://stylelint.io/',

@@ -6,7 +6,7 @@ export type Design = 'tailwind' | 'shadcn' | 'skeleton' | 'material-design' | 'f
 
 export type Library = 'redux' | 'jquery';
 
-export type Tool = 'git' | 'nodejs' | 'babel' | 'webpack' | 'vite' | 'postcss' | 'eslint' | 'stylelint' | 'stylistic';
+export type Tool = 'git' | 'nodejs' | 'babel' | 'webpack' | 'vite' | 'alchemy' | 'postcss' | 'eslint' | 'stylelint' | 'stylistic';
 
 export type Platforms = 'github' | 'gitlab' | 'discord' | 'whatsapp' | 'stack-overflow';
 
