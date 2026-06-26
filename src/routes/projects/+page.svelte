@@ -26,7 +26,7 @@
         },
         {
             name: 'TonBuddy',
-            description: 'The cutest web3 game. Features a virtual pet which you add feed and pet. Other features include a log in streak system, leaderboard system and a mining mini game.',
+            description: 'The cutest web3 game. Features a virtual pet which you can feed and pet. Other features include a log in streak system, leaderboard system and a mining mini game.',
             stack: ['svelte', 'vite', 'typescript'],
             url: 'https://app.tonbuddy.com'
         },
