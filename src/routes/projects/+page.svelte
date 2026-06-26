@@ -53,7 +53,7 @@
         },
         {
             name: 'AzureTools',
-            description: 'A customizable Web3 wallet dashboard for managing multiple cryptocurrency accounts. Users can import existing wallets, create new ones, track balances across chains, and organize assets through a flexible multi-user, multi-wallet architecture designed with efficiency in mind',
+            description: 'A customizable Web3 wallet dashboard for managing multiple cryptocurrency accounts. Users can import existing wallets, create new ones, track balances across chains, and organize assets through a flexible multi-user, multi-wallet architecture designed with efficiency in mind.',
             stack: ['svelte', 'skeleton', 'vite', 'alchemy', 'typescript'],
             url: 'https://azure-tools.vercel.app',
             github: 'AzureTools'
